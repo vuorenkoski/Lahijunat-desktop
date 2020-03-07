@@ -8,5 +8,5 @@ Tässä repositoriossa on **Lauri Vuorenkosken** harjoitustyö ja laskarit.
 
 ### Viikko 1
 
-[gitlog.txt](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-[komentorivi.txt](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+* [gitlog.txt](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+* [komentorivi.txt](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
