@@ -1,0 +1,114 @@
+commit 2fe347a14d8c4b6c68b9cc1e81c2e82def587a7b
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 09:46:07 2020 +0200
+
+    muutoksia tiedosto kansioon
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4665ebd0098ba307d0096f825a9f168123e600a6
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 09:01:42 2020 +0200
+
+    uusi alihakemisto tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit aface277ca0bf4065a1b38f92683ca4b939e11d0
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:52:20 2020 +0200
+
+    ekaan ja kolmanteen muutoksia
+
+ eka.txt    | 10 ++++++----
+ kolmas.txt |  6 +++++-
+ 2 files changed, 11 insertions(+), 5 deletions(-)
+
+commit 8401aa17b79ddcdf9f4059fb0101dc25cb8948f3
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:48:26 2020 +0200
+
+    tiedoston nimi muutettu: eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 31fe4476aed59f465cd6ff38c63bf8ce2754d021
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:46:15 2020 +0200
+
+    toinen poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 04bf3d9d6f173bea901ee1f61f10a1f80f382b56
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:40:31 2020 +0200
+
+    yksi uutinen vaihdettu
+
+ tiedosto.txt | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+commit 79fda3419b22e80bbb8cd6b366afade18f953b82
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:38:45 2020 +0200
+
+    Uutsia lisätty
+
+ tiedosto.txt | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+commit bd43630ba9ad812eefa4a25d43dbf92be68760ea
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:32:30 2020 +0200
+
+    Uusi alihakemisto
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 93b2f65c9ee0b47caef3816e379f864f07ba11b2
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:30:39 2020 +0200
+
+    toiseen ja kolmanteen tekstiä
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 073d4cfde5f97f57147b31727bacbc8891c1d93c
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:28:49 2020 +0200
+
+    Kolmas tiedosto lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a0caeac03853ea29a1b538d4718f17b4c20c705e
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:23:33 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit b890fb383bda4d6d903c439d12e184996b678cc4
+Author: Lauri Vuorenkoski <lauri.vuorenkoski@helsinki.fi>
+Date:   Sat Mar 7 08:19:53 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
