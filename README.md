@@ -14,3 +14,10 @@ Tässä repositoriossa on **Lauri Vuorenkosken** harjoitustyö ja laskarit.
 
 ### Viikko 2
 * [Kuvakaappaus](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko2/Screenshot.jpeg)
+
+## Harjoitustyö
+
+### Viikko 2
+* [Vaatimusmäärittely]()
+
+[Työaikakirjanpito]()
