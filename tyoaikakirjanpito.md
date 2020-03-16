@@ -4,5 +4,5 @@
 | :----:|:-----| :-----|
 | 16.3. | 10    | Netbeans ja JavaFx asennus + VR open data -dokumentaatio + vaatimusmäärittely|
 |    |    | | 
-| yht   | 28   | | 
+| yht   | 10   | | 
 
