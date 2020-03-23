@@ -16,7 +16,7 @@ import org.json.JSONArray;
 
 /**
  * Luokka jonka metodeilla haetaan dataa VR:n avoimen datan rajapinnasta.
- * @author lauri
+ * @author Lauri Vuorenkoski
  */
 public class FetchData {
     private static String baseAddress="https://rata.digitraffic.fi/api/v1";

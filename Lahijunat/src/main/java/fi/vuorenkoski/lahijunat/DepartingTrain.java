@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.vuorenkoski.lahijunat;
 
 import java.text.DateFormat;
@@ -14,14 +9,14 @@ import java.util.Date;
  * @author lauri
  */
 public class DepartingTrain implements Comparable<DepartingTrain> {
-    private String commuterLineId;
-    private int trainNumber;
-    private int destination;
-    private Date scheduledTime;
-    private Date liveEstimateTime;
-    private String track;
-    private String causes;
-    private boolean cancelled;
+    private final String commuterLineId;
+    private final int trainNumber;
+    private final int destination;
+    private final Date scheduledTime;
+    private final Date liveEstimateTime;
+    private final String track;
+    private final String causes;
+    private final boolean cancelled;
  
     
     public DepartingTrain(String commuterLineId, int trainNumber, int destination, Date scheduledTime, Date liveEstimateTime, String track, String causes, boolean cancelled) {
