@@ -1,12 +1,12 @@
-import fi.vuorenkoski.lahijunat.DepartingTrain;
+import fi.vuorenkoski.lahijunat.domain.DepartingTrain;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import fi.vuorenkoski.lahijunat.Station;
-import fi.vuorenkoski.lahijunat.FetchData;
+import fi.vuorenkoski.lahijunat.domain.Station;
+import fi.vuorenkoski.lahijunat.json.FetchData;
 import java.util.ArrayList;
 
 /**

@@ -1,5 +1,8 @@
-package fi.vuorenkoski.lahijunat;
 
+package fi.vuorenkoski.lahijunat.json;
+
+import fi.vuorenkoski.lahijunat.domain.DepartingTrain;
+import fi.vuorenkoski.lahijunat.domain.Station;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;

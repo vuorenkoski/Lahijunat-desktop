@@ -1,4 +1,4 @@
-package fi.vuorenkoski.lahijunat;
+package fi.vuorenkoski.lahijunat.domain;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

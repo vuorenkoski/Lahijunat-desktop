@@ -1,5 +1,8 @@
 package fi.vuorenkoski.lahijunat;
 
+import fi.vuorenkoski.lahijunat.domain.DepartingTrain;
+import fi.vuorenkoski.lahijunat.domain.Station;
+import fi.vuorenkoski.lahijunat.json.FetchData;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
