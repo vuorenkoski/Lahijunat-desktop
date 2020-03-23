@@ -1,3 +1,4 @@
+import fi.vuorenkoski.lahijunat.DepartingTrain;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -5,9 +6,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import fi.vuorenkoski.lahijunat.Station;
+import fi.vuorenkoski.lahijunat.FetchData;
+import java.util.ArrayList;
 
 /**
- *
+ * Yksikkötestejä Lähijunat -sovellukselle
  * @author lauri
  */
 public class LahijunatTest {
@@ -38,4 +41,5 @@ public class LahijunatTest {
         String station=Station.StationShortName(2);
         assertEquals("---",station);
     }
+    
 }

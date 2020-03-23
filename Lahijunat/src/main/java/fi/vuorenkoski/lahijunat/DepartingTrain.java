@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * Luokka kuvaa yhtä asemalta lähtevää junaa.
- * @author lauri
+ * @author Lauri Vuorenkoski
  */
 public class DepartingTrain implements Comparable<DepartingTrain> {
     private final String commuterLineId;
@@ -17,9 +17,10 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
     private final String track;
     private final String causes;
     private final boolean cancelled;
- 
     
-    public DepartingTrain(String commuterLineId, int trainNumber, int destination, Date scheduledTime, Date liveEstimateTime, String track, String causes, boolean cancelled) {
+    public DepartingTrain(String commuterLineId, int trainNumber, 
+            int destination, Date scheduledTime, Date liveEstimateTime, 
+            String track, String causes, boolean cancelled) {
         this.commuterLineId = commuterLineId;
         this.trainNumber = trainNumber;
         this.destination = destination;
@@ -40,8 +41,9 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
     }
     
     /**
-     * Metodi palauttaa aikautlun mukaisen lähtöajan Date muodossa.
+     * Metodi palauttaa aikataulun mukaisen lähtöajan Date muodossa.
      * 
+     * @return Päiväys
      */
     public Date getScheduledTime() {
         return scheduledTime;
@@ -49,10 +51,17 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
     
     @Override
     public String toString() {
-        if (this.cancelled) return ""+this.commuterLineId+this.hhmmString(scheduledTime)+" "+Station.StationName(this.destination)+" PERUTTU";
-        if (this.scheduledTime!=this.liveEstimateTime) return ""+this.commuterLineId+" "+this.track+
-                " "+this.hhmmString(scheduledTime)+"-->"+this.hhmmString(liveEstimateTime)+" "+Station.StationName(this.destination);
-        return ""+this.commuterLineId+" "+this.track+" "+this.hhmmString(scheduledTime)+" "+Station.StationName(this.destination);
+        if (this.cancelled) return ""+this.commuterLineId
+                +this.hhmmString(scheduledTime)+" "
+                +Station.StationName(this.destination)+" PERUTTU";
+        if (this.scheduledTime!=this.liveEstimateTime) return ""
+                +this.commuterLineId+" "+this.track+" "
+                +this.hhmmString(scheduledTime)+"-->"
+                +this.hhmmString(liveEstimateTime)+" "
+                +Station.StationName(this.destination);
+        return ""+this.commuterLineId+" "+this.track+" "
+                +this.hhmmString(scheduledTime)+" "
+                +Station.StationName(this.destination);
     }
     
     @Override

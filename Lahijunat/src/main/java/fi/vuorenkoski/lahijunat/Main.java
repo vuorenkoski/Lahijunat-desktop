@@ -1,5 +1,7 @@
 package fi.vuorenkoski.lahijunat;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,7 +12,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<DepartingTrain> trains=new ArrayList<>();
         
         Scanner lukija=new Scanner(System.in);
         System.out.println("Anna asema (esim. Kauklahti):");
@@ -19,11 +20,11 @@ public class Main {
             System.out.println("Asemaa ei löydy");
         } else {
             try {
-                trains=FetchData.DepartingTrainsFromStation(station);
-                for (DepartingTrain train:trains) {
+                ArrayList<DepartingTrain> trains=FetchData.DepartingTrainsFromStation(station);
+                trains.forEach((train) -> {
                     System.out.println(train);
-                }
-            } catch (Exception ex) {
+                });
+            } catch (IOException | ParseException ex) {
                 System.out.println("Virhe:"+ex.toString());
             }
         }        
