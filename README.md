@@ -18,6 +18,6 @@ Tässä repositoriossa on **Lauri Vuorenkosken** harjoitustyö ja laskarit.
 ## Harjoitustyö
 
 ### Viikko 2
-* [Vaatimusmäärittely](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/vaatimusmaarittely.md)
+* [Vaatimusmäärittely](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/vaatimusmaarittely.md)
 
-[Työaikakirjanpito](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/tyoaikakirjanpito.md)

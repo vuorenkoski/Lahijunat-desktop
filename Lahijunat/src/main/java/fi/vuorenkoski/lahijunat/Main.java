@@ -13,7 +13,7 @@ public class Main {
         ArrayList<DepartingTrain> trains=new ArrayList<>();
         
         Scanner lukija=new Scanner(System.in);
-        System.out.print("Anna asema:");
+        System.out.print("Anna asema (esim. Kauklahti):");
         int station=Station.StationUICode(lukija.nextLine());
         if (station==-1) {
             System.out.println("Asemaa ei löydy");
