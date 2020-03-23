@@ -6,6 +6,8 @@
 | 17.3. | 3    | Github ja json|
 | 18.3. | 4    | ensimmäisen toiminnalisuuden koodaamista |
 | 22.3. | 4    | ensimmäisen toiminnalisuuden koodaamista |
+| 23.3. | 3    | koodailua ja testejä |
+
 |    |    | | 
-| yht   | 18   | | 
+| yht   | 21   | | 
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * Lähijunat - main class
- * @author lauri
+ * @author Lauri Vuorenkoski
  */
 public class Main {
 
@@ -13,7 +13,7 @@ public class Main {
         ArrayList<DepartingTrain> trains=new ArrayList<>();
         
         Scanner lukija=new Scanner(System.in);
-        System.out.print("Anna asema (esim. Kauklahti):");
+        System.out.println("Anna asema (esim. Kauklahti):");
         int station=Station.StationUICode(lukija.nextLine());
         if (station==-1) {
             System.out.println("Asemaa ei löydy");

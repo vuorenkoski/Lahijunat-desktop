@@ -22,6 +22,7 @@ public class FetchData {
     private static String baseAddress="https://rata.digitraffic.fi/api/v1";
 
     public static ArrayList<DepartingTrain> DepartingTrainsFromStation(int UICCode) throws MalformedURLException, IOException, ParseException {
+        if (Station.StationShortName(UICCode).equals("---")) return null;
         ArrayList<DepartingTrain> trainArray=new ArrayList<>();          
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
