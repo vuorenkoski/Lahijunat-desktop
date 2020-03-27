@@ -10,6 +10,8 @@ Harjoitustyä löytyy [täältä](https://github.com/vuorenkoski/ot-harjoitustyo
 ### Release viikko 3
 Sovelluksessa on ensimmäinen toiminnallisuus pelkistetyllä tekstikäytöliittymällä (lähtevien junien haku asemalta). Koodia voi testata muutamalla yksikkötestillä. Sovellukselle pystyy generoimaan testikattavuusraportin. 
 
+[Release viikko 3](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko3)
+
 ## Viikkotehtävät
 
 ### Viikko 1
