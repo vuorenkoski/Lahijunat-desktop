@@ -4,6 +4,12 @@ Tässä repositoriossa on **Lauri Vuorenkosken** harjoitustyö ja laskarit.
 
 [Kurssin sivut](https://github.com/mluukkai/ohjelmistotekniikka-kevat-2020/blob/master/README.md)
 
+## Harjoitustyö
+Harjoitustyä löytyy [täältä](https://github.com/vuorenkoski/ot-harjoitustyo/tree/master/Lahijunat)
+
+### Release viikko3
+Sovelluksessa on ensimmäinen toiminnallisuus pelkistetyllä tekstikäytöliittymällä (lähtevien junien haku asemalta). Koodian voi testata muutamalla yksikkötestillä. Sovellukselle pystyy generoimaan testikattavuusraportin. 
+
 ## Viikkotehtävät
 
 ### Viikko 1
@@ -11,13 +17,13 @@ Tässä repositoriossa on **Lauri Vuorenkosken** harjoitustyö ja laskarit.
 * [gitlog.txt](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 * [komentorivi.txt](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-
 ### Viikko 2
 * [Kuvakaappaus](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko2/Screenshot.jpeg)
 
-## Harjoitustyö
+### Viikko 3
+* [Tehtävä 1](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko3/tehtava1.jpg)
+* [Tehtävä 2](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko3/tehtava2.jpg)
+* [Tehtävä 3](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko3/tehtava3.png)
+* [Tehtävä 4](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/laskarit/viikko3/tehtava4.png)
 
-### Viikko 2
-* [Vaatimusmäärittely](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/vaatimusmaarittely.md)
 
-[Työaikakirjanpito](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/tyoaikakirjanpito.md)
