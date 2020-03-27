@@ -7,8 +7,8 @@ Tässä repositoriossa on **Lauri Vuorenkosken** harjoitustyö ja laskarit.
 ## Harjoitustyö
 Harjoitustyä löytyy [täältä](https://github.com/vuorenkoski/ot-harjoitustyo/tree/master/Lahijunat)
 
-### Release viikko3
-Sovelluksessa on ensimmäinen toiminnallisuus pelkistetyllä tekstikäytöliittymällä (lähtevien junien haku asemalta). Koodian voi testata muutamalla yksikkötestillä. Sovellukselle pystyy generoimaan testikattavuusraportin. 
+### Release viikko 3
+Sovelluksessa on ensimmäinen toiminnallisuus pelkistetyllä tekstikäytöliittymällä (lähtevien junien haku asemalta). Koodia voi testata muutamalla yksikkötestillä. Sovellukselle pystyy generoimaan testikattavuusraportin. 
 
 ## Viikkotehtävät
 
