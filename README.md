@@ -5,7 +5,7 @@ Tässä repositoriossa on **Lauri Vuorenkosken** harjoitustyö ja laskarit.
 [Kurssin sivut](https://github.com/mluukkai/ohjelmistotekniikka-kevat-2020/blob/master/README.md)
 
 ## Harjoitustyö
-Harjoitustyä löytyy [täältä](https://github.com/vuorenkoski/ot-harjoitustyo/tree/master/Lahijunat)
+Harjoitustyö löytyy [täältä](https://github.com/vuorenkoski/ot-harjoitustyo/tree/master/Lahijunat)
 
 ### Release viikko 3
 Sovelluksessa on ensimmäinen toiminnallisuus pelkistetyllä tekstikäytöliittymällä (lähtevien junien haku asemalta). Koodia voi testata muutamalla yksikkötestillä. Sovellukselle pystyy generoimaan testikattavuusraportin. 
