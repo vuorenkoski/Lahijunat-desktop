@@ -7,6 +7,11 @@
 | 18.3. | 4    | ensimmäisen toiminnalisuuden koodaamista |
 | 22.3. | 4    | ensimmäisen toiminnalisuuden koodaamista |
 | 23.3. | 3    | koodailua ja testejä |
+| 29.3. | 8    | javaxf ja checkstyle |
+| 30.3. | 8    | uusi toiminnallisuus: junan tiedot |
+| 31.3. | 3    | testejä ja viilausta|
+| 1.4. | 2    | Luokkien uudellenjärjestelyä |
+
 |    |    | | 
-| yht   | 21   | | 
+| yht   | 42   | | 
 
