@@ -11,6 +11,7 @@
 | 30.3. | 8    | uusi toiminnallisuus: junan tiedot |
 | 31.3. | 3    | testejä ja viilausta|
 | 1.4. | 2    | Luokkien uudellenjärjestelyä |
+| 2.4. | 2    | Viikko4 release valmiiksi |
 |    |    | | 
-| yht   | 42   | | 
+| yht   | 44   | | 
 
