@@ -44,7 +44,7 @@
                 <version>0.8.3</version>
                 <configuration>
                     <excludes>
-                        <exclude>lahijunat.ui/*</exclude>
+                        <exclude>lahijunat/ui/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

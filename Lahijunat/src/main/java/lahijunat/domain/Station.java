@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Metodilla voi vaihtaa junaasemien koodeja, nimiä ja lyhytnimiä toisikseen.
- * @author lauri
+ * Luokalla voi vaihtaa junaasemien koodeja, nimiä ja lyhytnimiä toisikseen.
+ * @author Lauri Vuorenkoski
  */
 public class Station {
 

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.text.ParseException;
 import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,12 +17,12 @@ public class FetchData {
     private static final String BASEADDRESS = "https://rata.digitraffic.fi/api/v1";
 
     /**
-     * Metodi palauttaa datan junista jotka lähtevät asemalta seuraavan kahden tunnin aikana.
+     * Metodi palauttaa datan junista, jotka lähtevät asemalta seuraavan kahden tunnin aikana.
      * 
      * @param UICCode
      * @return Lähtevät junat -datalista (JSONArray)
      */
-    public static JSONArray departingTrainsFromStation(int uicCode) throws MalformedURLException, IOException, ParseException {
+    public static JSONArray departingTrainsFromStation(int uicCode) throws MalformedURLException, IOException {
         if (Station.stationShortName(uicCode).equals("---")) {
             return null;
         }
@@ -46,7 +45,7 @@ public class FetchData {
      * @param trainNumber
      * @return Junan aikataulu -data (JSONObject)
      */
-    public static JSONObject trainTimeTable(int trainNumber) throws MalformedURLException, IOException, ParseException {               
+    public static JSONObject trainTimeTable(int trainNumber) throws MalformedURLException, IOException {               
         URL url = new URL(BASEADDRESS + "/trains/latest/" + trainNumber);
         Scanner urlReader = new Scanner(url.openStream());
         JSONArray data = new JSONArray(urlReader.nextLine());

@@ -6,6 +6,7 @@ Sovelluksella saa reaaliaikaista tietoa VR:n lähijunien liikkeistä ja aikataul
 
 * [Vaatimusmäärittely](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/vaatimusmaarittely.md)
 * [Työaikakirjanpito](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/tyoaikakirjanpito.md)
+* [Arkkitehtuurikuvaus](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/arkkitehtuuri.md)
 
 ## Komentorivitoiminnot
 

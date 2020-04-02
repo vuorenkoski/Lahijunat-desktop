@@ -1,9 +1,5 @@
 package lahijunat.data;
 
-/**
- *
- * @author Lauri Vuorenkoski
- */
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.DateFormat;
@@ -27,6 +23,7 @@ import org.json.JSONObject;
  * Luokka kuvaa yhden junan aikautalua.
  * @author Lauri Vuorenkoski
  */
+
 public class TrainTable {
     private TableView dataTable;
     private String commuterLineID;
@@ -44,9 +41,17 @@ public class TrainTable {
         this.formatDataTable();
     }
     
+    /**
+     * Metodi päivittää junan aikautalun. 
+     * Mikäli junan koodi on 0, junaa ei muuteta. 
+     * @param aseman koodi
+     */
     public void update(int trainNumber) throws IOException, MalformedURLException, ParseException {
         if (trainNumber != 0) {
             this.trainNumber = trainNumber;
+        }
+        if (this.trainNumber == 0) {
+            return;
         }
         JSONObject data = FetchData.trainTimeTable(this.trainNumber);
         this.commuterLineID = data.getString("commuterLineID");
@@ -104,6 +109,10 @@ public class TrainTable {
         return commuterLineID;
     }
 
+    /**
+     * Palauttaa junan aikataulun taulokkona
+     * @return Aikataulu (TableView)
+     */
     public TableView getDataTable() {
         return dataTable;
     }
@@ -111,18 +120,22 @@ public class TrainTable {
     private void formatDataTable() {
         TableColumn trainTimeColumn = new TableColumn("Lähtö");
         trainTimeColumn.setMaxWidth(50);
+        trainTimeColumn.setSortable(false);
         trainTimeColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("time"));
         
         TableColumn trainEstimateColumn = new TableColumn("Arvio");
         trainEstimateColumn.setMaxWidth(50);
+        trainEstimateColumn.setSortable(false);
         trainEstimateColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("estimate"));
         
         TableColumn trainNextColumn = new TableColumn(" ");
         trainNextColumn.setMaxWidth(20);
+        trainNextColumn.setSortable(false);
         trainNextColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("next"));        
 
         TableColumn trainStationColumn = new TableColumn("Asema");
         trainStationColumn.setMinWidth(120);
+        trainStationColumn.setSortable(false);
         trainStationColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("station"));
         
         this.dataTable = new TableView();

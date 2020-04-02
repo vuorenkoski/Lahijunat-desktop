@@ -97,8 +97,7 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
     
     @Override
     public String toString() {
-        return Station.stationName(this.station) + " " + this.commuterLineId + 
-                " " + this.hhmmString(scheduledTime);
+        return Station.stationName(this.station) + " " + this.hhmmString(scheduledTime) + " " + this.commuterLineId;
     }
     
     @Override

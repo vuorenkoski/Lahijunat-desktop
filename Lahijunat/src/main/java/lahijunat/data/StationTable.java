@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- *
+ * Luokka kuvaa yhdeltä asemalta lähtevien junien tietoja.
  * @author Lauri Vuorenkoski
  */
 public class StationTable {
@@ -30,12 +30,20 @@ public class StationTable {
     public StationTable() {
         this.formatDataTable();
         this.trainArray = new ArrayList<>();
-        uicCode = 0;
+        this.uicCode = 0;
     }
     
+    /**
+     * Metodi päivittää asemalta lähtevien junien tiedot. 
+     * Mikäli aseman koodi on 0, asemaa ei muuteta. 
+     * @param aseman koodi
+     */
     public void update(int uicCode) throws MalformedURLException, IOException, ParseException {
         if (uicCode != 0) {
             this.uicCode = uicCode;
+        }
+        if (this.uicCode == 0) {
+            return;
         }
         this.trainArray.clear();
         JSONArray data = FetchData.departingTrainsFromStation(this.uicCode);
@@ -94,10 +102,18 @@ public class StationTable {
         return null;
     }
 
+    /**
+     * Metodi palauttaa aseman koodin. 
+     * @return aseman koodi (int)
+     */
     public int getUicCode() {
         return uicCode;
     }
 
+    /**
+     * Metodi palauttaa taulukon jossa asemalta lähtevät junat. 
+     * @return Taulukko lähtevistä junista (TableView)
+     */
     public TableView getDataTable() {
         return dataTable;
     }
@@ -105,29 +121,36 @@ public class StationTable {
     private void formatDataTable() {
         TableColumn trainTimeColumn = new TableColumn("Lähtö");
         trainTimeColumn.setMaxWidth(50);
+        trainTimeColumn.setSortable(false);
         trainTimeColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("time"));
         
         TableColumn trainEstimateColumn = new TableColumn("Arvio");
         trainEstimateColumn.setMaxWidth(50);
+        trainEstimateColumn.setSortable(false);
         trainEstimateColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("estimate"));
         
         TableColumn trainTrackColumn = new TableColumn("Raide");
         trainTrackColumn.setMaxWidth(50);
+        trainTrackColumn.setSortable(false);
         trainTrackColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("track"));
         
         TableColumn trainIdColumn = new TableColumn("Juna");
         trainIdColumn.setMaxWidth(50);
+        trainIdColumn.setSortable(false);
         trainIdColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("commuterLineId"));
         
         TableColumn trainDestinationColumn = new TableColumn("Pääteasema");
         trainDestinationColumn.setMinWidth(120);
+        trainDestinationColumn.setSortable(false);
         trainDestinationColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("destination"));
         
         TableColumn trainNumberColumn = new TableColumn("Numero");
+        trainNumberColumn.setSortable(false);
         trainNumberColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, Integer>("trainNumber"));
         
         TableColumn trainCausesColumn = new TableColumn("Peruutuksen syy");
         trainCausesColumn.setMinWidth(430);
+        trainCausesColumn.setSortable(false);
         trainCausesColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("causes"));        
         
         this.dataTable = new TableView();

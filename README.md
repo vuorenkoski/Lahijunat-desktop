@@ -12,6 +12,10 @@ Sovelluksessa on ensimmäinen toiminnallisuus pelkistetyllä tekstikäytöliitty
 
 [Release viikko 3](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko3)
 
+### Release viikko 4
+Lisätty graafinen käyttöliittymä ja junan aikautaulutiedot -välilehti sekä ohje -välilehti. 
+[Release viikko 4](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko4)
+
 ## Viikkotehtävät
 
 ### Viikko 1
