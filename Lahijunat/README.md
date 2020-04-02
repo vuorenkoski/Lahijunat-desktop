@@ -30,5 +30,5 @@ mvn jxr:jxr checkstyle:checkstyle
 Ohjelman suoritus
 
 ```
-mvn compile exec:java -Dexec.mainClass=fi.vuorenkoski.lahijunat.Main
+mvn compile exec:java -Dexec.mainClass=lahijunat.Main
 ```
