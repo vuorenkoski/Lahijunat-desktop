@@ -11,7 +11,6 @@
 | 30.3. | 8    | uusi toiminnallisuus: junan tiedot |
 | 31.3. | 3    | testejä ja viilausta|
 | 1.4. | 2    | Luokkien uudellenjärjestelyä |
-
 |    |    | | 
 | yht   | 42   | | 
 
