@@ -4,7 +4,7 @@ Juna välilehti: Valitun junan aikataulutiedot. Mikäli juna on myöhässä, nä
 
 
 Lähijunat -sovellus
-v. 31.3.2020
+v. 2.4.2020
 
 datalähde: https://www.digitraffic.fi/rautatieliikenne/
 
