@@ -17,6 +17,12 @@ Lisätty graafinen käyttöliittymä, junan aikautaulutiedot -välilehti ja ohje
 
 [Release viikko 4](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko4)
 
+### Release viikko 5
+Lisätty oma kartta -välilehti, sekä karttanäkymä junan aikautalut -välilehdelle
+
+[Release viikko 5](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko5)
+
+
 ## Viikkotehtävät
 
 ### Viikko 1

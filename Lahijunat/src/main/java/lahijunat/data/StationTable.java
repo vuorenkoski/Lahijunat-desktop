@@ -116,7 +116,7 @@ public class StationTable {
         TableColumn trainTrackColumn = addColumn("Raide", 50, "track");
         TableColumn trainIdColumn = addColumn("Juna", 50, "commuterLineId");
         TableColumn trainDestinationColumn = addColumn("Pääteasema", 120, "destination");
-        TableColumn trainNumberColumn = addColumn("Numero", 60, "trainNumber");
+        TableColumn trainNumberColumn = addColumn("Numero", 75, "trainNumber");
         TableColumn trainCausesColumn = addColumn("Peruutettu ja syy", 430, "causes");
         
         this.dataTable = new TableView();
