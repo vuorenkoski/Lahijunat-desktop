@@ -1,6 +1,7 @@
 package lahijunat.vrapi;
 
 import lahijunat.domain.Station;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -50,5 +51,24 @@ public class FetchData {
         Scanner urlReader = new Scanner(url.openStream());
         JSONArray data = new JSONArray(urlReader.nextLine());
         return data.getJSONObject(0);
+    }
+    
+    /**
+     * Metodi palauttaa datan kaikkien junien positioista.
+     * 
+     * @param trainNumber
+     * @return Junan aikataulu -data (JSONArray)
+     */
+    public static JSONArray allTrainsCoordinates() throws MalformedURLException, IOException {
+        URL url = new URL(BASEADDRESS + "/train-locations/latest?bbox=24,60,25,62");
+        Scanner urlReader = new Scanner(url.openStream());
+        JSONArray data = new JSONArray(urlReader.nextLine());
+        return data;
+    }
+    
+    public static JSONArray trainCoordinates(int trainNumber) throws MalformedURLException, IOException {
+        URL url = new URL(BASEADDRESS + "/train-locations/latest/" + trainNumber);
+        Scanner urlReader = new Scanner(url.openStream());
+        return new JSONArray(urlReader.nextLine());
     }
 }

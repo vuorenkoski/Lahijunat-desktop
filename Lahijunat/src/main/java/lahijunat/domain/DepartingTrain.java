@@ -12,30 +12,49 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
     private final String commuterLineId;
     private final int trainNumber;
     private final int station;
-    private final int destination;
-    private final Date scheduledTime;
-    private final Date liveEstimateTime;
-    private final String track;
-    private final String causes;
-    private final boolean cancelled;
+    private int destination;
+    private Date scheduledTime;
+    private Date liveEstimateTime;
+    private String track;
+    private String causes;
+    private boolean cancelled;
     
-    public DepartingTrain(String commuterLineId, int trainNumber, 
-            int station, int destination, Date scheduledTime, Date liveEstimateTime, 
-            String track, String causes, boolean cancelled) {
+    public DepartingTrain(String commuterLineId, int trainNumber, int station) {
         this.commuterLineId = commuterLineId;
         this.trainNumber = trainNumber;
         this.station = station;
-        this.destination = destination;
-        this.scheduledTime = scheduledTime;
-        this.track = track;
-        this.causes = causes;
-        this.cancelled = cancelled;
-        if (liveEstimateTime.getTime() - scheduledTime.getTime() > 80000) {
-            this.liveEstimateTime = liveEstimateTime;
-        } else {
-            this.liveEstimateTime = scheduledTime;
-        }
+        this.destination = 0;
+        this.scheduledTime = null;
+        this.track = "";
+        this.causes = "";
+        this.cancelled = false;
+        this.liveEstimateTime = null;
     }
+
+    public void setDestination(int destination) {
+        this.destination = destination;
+    }
+
+    public void setScheduledTime(Date scheduledTime) {
+        this.scheduledTime = scheduledTime;
+    }
+
+    public void setLiveEstimateTime(Date liveEstimateTime) {
+        this.liveEstimateTime = liveEstimateTime;
+    }
+
+    public void setTrack(String track) {
+        this.track = track;
+    }
+
+    public void setCauses(String causes) {
+        this.causes = causes;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
+    }
+
     
     public String getTime() {
         return hhmmString(scheduledTime);
@@ -59,10 +78,13 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
      * @return peruutuksen syyt
      */
     public String getCauses() {
-        if (causes.equals("[]")) {
-            return "";
+        if (this.cancelled)  {
+            if (this.causes.equals("[]")) {
+                return "Peruttu";
+            }
+            return "Peruttu: " + this.causes;
         }
-        return causes;
+        return "";
     }
     
     /**
@@ -80,7 +102,7 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
      * @return Päiväys
      */
     public String getEstimate() {
-        if (this.scheduledTime != this.liveEstimateTime) {
+        if (this.liveEstimateTime != null && !this.hhmmString(scheduledTime).equals(this.hhmmString(this.liveEstimateTime))) {
             return hhmmString(liveEstimateTime);
         }
         return "";

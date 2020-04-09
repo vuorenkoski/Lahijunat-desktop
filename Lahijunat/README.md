@@ -33,3 +33,12 @@ Ohjelman suoritus
 ```
 mvn compile exec:java -Dexec.mainClass=lahijunat.Main
 ```
+
+Suorituskelpoinen jar-tiedosto
+
+```
+mvn package
+```
+```
+java -jar target/Lahijunat-1.0-SNAPSHOT.jar
+```

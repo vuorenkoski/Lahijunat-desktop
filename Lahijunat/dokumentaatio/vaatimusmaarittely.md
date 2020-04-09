@@ -22,6 +22,7 @@ Ohjelma tallentaa käyttäjän viimeiset kymmenen hakua (asemat ja junat). Näm�
 ## Toiminnallisuuksien toteutus
 - Viikko 3: Asematietojen haku tekstikäyttöliittymällä
 - Viikko 4: Lisätty graafinen käyttöliittymä, junan aikautaulutiedot -välilehti ja ohje -välilehti. 
+- viikko 5: Lisätty oma kartta -välilehti, sekä karttanäkymä junan aikautalut -välilehdelle
 
 ## Jatkokehtiysideoita
 - miten voitaisiin hydyntää kulkutietoviestit-dataa?

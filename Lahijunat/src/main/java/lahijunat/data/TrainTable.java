@@ -1,5 +1,10 @@
 package lahijunat.data;
 
+import lahijunat.domain.DepartingTrain;
+import lahijunat.domain.Station;
+import lahijunat.domain.TrainStop;
+import lahijunat.vrapi.FetchData;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.DateFormat;
@@ -12,10 +17,6 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lahijunat.domain.DepartingTrain;
-import lahijunat.domain.Station;
-import lahijunat.domain.TrainStop;
-import lahijunat.vrapi.FetchData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -31,6 +32,7 @@ public class TrainTable {
     private boolean nextStationPassed;
     private final DateFormat dateFormat;
     private int trainNumber;
+    private boolean cancelled;
 
     public TrainTable() {
         this.commuterLineID = "";
@@ -55,6 +57,7 @@ public class TrainTable {
         }
         JSONObject data = FetchData.trainTimeTable(this.trainNumber);
         this.commuterLineID = data.getString("commuterLineID");
+        this.cancelled = data.getBoolean("cancelled");
         this.stations.clear();
         JSONArray timeTableRows = data.getJSONArray("timeTableRows");
         this.nextStationPassed = false;
@@ -65,9 +68,16 @@ public class TrainTable {
         }
         this.addStation(timeTableRows.getJSONObject(i), true);
         
-        // Siirretaan data taulukkoon
+        this.updateTable();
+    }
+    
+    private void updateTable() {
         this.dataTable.getItems().clear();
-        this.dataTable.getItems().addAll(FXCollections.observableArrayList(this.stations));
+        if (this.cancelled) {
+            this.dataTable.getItems().add(new TrainStop(null, "PERUTTU"));
+        } else { 
+            this.dataTable.getItems().addAll(FXCollections.observableArrayList(this.stations));
+        }
     }
     
     /**
@@ -77,27 +87,25 @@ public class TrainTable {
      */
     private void addStation(JSONObject row, boolean lastStop) throws ParseException {
         if ((row.getString("type").equals("DEPARTURE") || lastStop) && row.getBoolean("trainStopping")) {
-            String nextStation = "";
-            Date liveEstimateTime = null;
+            TrainStop trainStop = new TrainStop(dateFormat.parse(row.getString("scheduledTime")), Station.stationName(row.getInt("stationUICCode")));
             
             if (row.has("liveEstimateTime")) {
                 if (!nextStationPassed) {
                     nextStationPassed = true;
-                    nextStation = "X";
+                    trainStop.setNextStation("X");
                 }
             }
             
             if (row.has("differenceInMinutes") && row.getInt("differenceInMinutes") > 1) {
                 if (row.has("liveEstimateTime")) {
-                    liveEstimateTime = dateFormat.parse(row.getString("liveEstimateTime"));
+                    trainStop.setLiveEstimateTime(dateFormat.parse(row.getString("liveEstimateTime")));
                 }
                 if (row.has("actualTime")) {
-                    liveEstimateTime = dateFormat.parse(row.getString("actualTime"));
+                    trainStop.setLiveEstimateTime(dateFormat.parse(row.getString("actualTime")));
                 }
             }
 
-            stations.add(new TrainStop(liveEstimateTime, dateFormat.parse(row.getString("scheduledTime")), 
-                    nextStation, Station.stationName(row.getInt("stationUICCode"))));
+            stations.add(trainStop);
         }
     }
     
@@ -118,27 +126,22 @@ public class TrainTable {
     }
 
     private void formatDataTable() {
-        TableColumn trainTimeColumn = new TableColumn("Lähtö");
-        trainTimeColumn.setMaxWidth(50);
-        trainTimeColumn.setSortable(false);
-        trainTimeColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("time"));
-        
-        TableColumn trainEstimateColumn = new TableColumn("Arvio");
-        trainEstimateColumn.setMaxWidth(50);
-        trainEstimateColumn.setSortable(false);
-        trainEstimateColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("estimate"));
-        
-        TableColumn trainNextColumn = new TableColumn(" ");
-        trainNextColumn.setMaxWidth(20);
-        trainNextColumn.setSortable(false);
-        trainNextColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("next"));        
-
-        TableColumn trainStationColumn = new TableColumn("Asema");
-        trainStationColumn.setMinWidth(120);
-        trainStationColumn.setSortable(false);
-        trainStationColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("station"));
+        TableColumn trainTimeColumn = addColumn("Lähtö", 50, "time");
+        TableColumn trainEstimateColumn = addColumn("Arvio", 50, "estimate");
+        TableColumn trainNextColumn = addColumn(" ", 20, "next");
+        TableColumn trainStationColumn = addColumn("Asema", 120, "station");
         
         this.dataTable = new TableView();
         this.dataTable.getColumns().addAll(trainTimeColumn, trainEstimateColumn, trainNextColumn, trainStationColumn);
+        this.dataTable.setMaxWidth(245);
+    }
+    
+    private TableColumn addColumn(String title, int width, String data) {
+        TableColumn column = new TableColumn(title);
+        column.setMinWidth(width);
+        column.setMaxWidth(width);
+        column.setSortable(false);
+        column.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>(data));
+        return column;
     }
 }

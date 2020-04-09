@@ -1,5 +1,8 @@
 package lahijunat.data;
 
+import lahijunat.domain.DepartingTrain;
+import lahijunat.vrapi.FetchData;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.DateFormat;
@@ -13,8 +16,6 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lahijunat.domain.DepartingTrain;
-import lahijunat.vrapi.FetchData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -45,15 +46,18 @@ public class StationTable {
         if (this.uicCode == 0) {
             return;
         }
-        this.trainArray.clear();
         JSONArray data = FetchData.departingTrainsFromStation(this.uicCode);
+        this.updateData(data, new Date(System.currentTimeMillis()));
+    }
+    
+    public void updateData(JSONArray data, Date currentTime) throws ParseException {
+        this.trainArray.clear();
         for (int i = 0; i < data.length(); i++) {
             DepartingTrain train = this.parseTrain(this.uicCode, data.getJSONObject(i));
-            if (train != null && train.getScheduledTime().compareTo(new Date(System.currentTimeMillis())) > 0) {
+            if (train.getScheduledTime() != null && train.getScheduledTime().compareTo(currentTime) > 0) {
                 trainArray.add(train);
             }
         }
-        // Sortataan junat lähtöajan mukaan
         Collections.sort(this.trainArray);
 
         // Siirretaan data taulukkoon
@@ -65,43 +69,31 @@ public class StationTable {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-        // Jokaisen datarivin aluksi on yleisät tietoa junasta
-        String commuterLineId = data.getString("commuterLineID");
-        int trainNumer = data.getInt("trainNumber");
-        Date scheduledTime = new Date();
-        Date liveEstimateTime = new Date();
-        String track = "";
-        String causes = "";
-        int destination = 0;
-        boolean cancelled = false;
+        DepartingTrain train = new DepartingTrain(data.getString("commuterLineID"), data.getInt("trainNumber"), uicCode);
 
-        // Tämän jälkeen on tiedot kaikista asemista jossa kyseinen juna pysähtyy, tuloaika ja lähtöaika
-        // Otetaan talteen vaan kyseisen aseman lähtöaika ja pääteasema sekä pääteaseman saapumisaika.
         JSONArray timeTableRows = data.getJSONArray("timeTableRows");           
         for (int j = 0; j < timeTableRows.length(); j++) {
             JSONObject row = timeTableRows.getJSONObject(j);
             if (row.getInt("stationUICCode") == uicCode && row.getString("type").equals("DEPARTURE") && row.getBoolean("trainStopping")) {
-                scheduledTime = dateFormat.parse(row.getString("scheduledTime"));
+                train.setScheduledTime(dateFormat.parse(row.getString("scheduledTime")));
                 if (row.has("liveEstimateTime")) {
-                    liveEstimateTime = dateFormat.parse(row.getString("liveEstimateTime"));
-                } else {
-                    liveEstimateTime = scheduledTime;
+                    train.setLiveEstimateTime(dateFormat.parse(row.getString("liveEstimateTime")));
                 }
-                cancelled = row.getBoolean("cancelled");
-                track = row.getString("commercialTrack");
-                causes = row.getJSONArray("causes").toString();                    
+                train.setCancelled(row.getBoolean("cancelled"));
+                train.setTrack(row.getString("commercialTrack"));
+                train.setCauses(row.getJSONArray("causes").toString());                    
             }
-            destination = row.getInt("stationUICCode");
+            train.setDestination(row.getInt("stationUICCode"));
         }
 
-        // Otetaan juna listaan mukaan jos sille on määritelty raide ja se ei ole vielä lähtenyt asemalta
-        if (track.equals("") == false)  {
-            return new DepartingTrain(commuterLineId, trainNumer, uicCode, destination, 
-                    scheduledTime, liveEstimateTime, track, causes, cancelled);
-        }
-        return null;
+        return train;
+        
     }
 
+    public void setUicCode(int uicCode) {
+        this.uicCode = uicCode;
+    }
+    
     /**
      * Metodi palauttaa aseman koodin. 
      * @return aseman koodi (int)
@@ -119,42 +111,25 @@ public class StationTable {
     }
     
     private void formatDataTable() {
-        TableColumn trainTimeColumn = new TableColumn("Lähtö");
-        trainTimeColumn.setMaxWidth(50);
-        trainTimeColumn.setSortable(false);
-        trainTimeColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("time"));
-        
-        TableColumn trainEstimateColumn = new TableColumn("Arvio");
-        trainEstimateColumn.setMaxWidth(50);
-        trainEstimateColumn.setSortable(false);
-        trainEstimateColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("estimate"));
-        
-        TableColumn trainTrackColumn = new TableColumn("Raide");
-        trainTrackColumn.setMaxWidth(50);
-        trainTrackColumn.setSortable(false);
-        trainTrackColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("track"));
-        
-        TableColumn trainIdColumn = new TableColumn("Juna");
-        trainIdColumn.setMaxWidth(50);
-        trainIdColumn.setSortable(false);
-        trainIdColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("commuterLineId"));
-        
-        TableColumn trainDestinationColumn = new TableColumn("Pääteasema");
-        trainDestinationColumn.setMinWidth(120);
-        trainDestinationColumn.setSortable(false);
-        trainDestinationColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("destination"));
-        
-        TableColumn trainNumberColumn = new TableColumn("Numero");
-        trainNumberColumn.setSortable(false);
-        trainNumberColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, Integer>("trainNumber"));
-        
-        TableColumn trainCausesColumn = new TableColumn("Peruutuksen syy");
-        trainCausesColumn.setMinWidth(430);
-        trainCausesColumn.setSortable(false);
-        trainCausesColumn.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>("causes"));        
+        TableColumn trainTimeColumn = addColumn("Lähtö", 50, "time");
+        TableColumn trainEstimateColumn = addColumn("Arvio", 50, "estimate");
+        TableColumn trainTrackColumn = addColumn("Raide", 50, "track");
+        TableColumn trainIdColumn = addColumn("Juna", 50, "commuterLineId");
+        TableColumn trainDestinationColumn = addColumn("Pääteasema", 120, "destination");
+        TableColumn trainNumberColumn = addColumn("Numero", 60, "trainNumber");
+        TableColumn trainCausesColumn = addColumn("Peruutettu ja syy", 430, "causes");
         
         this.dataTable = new TableView();
         this.dataTable.getColumns().addAll(trainTimeColumn, trainEstimateColumn, trainTrackColumn, trainIdColumn, 
                 trainDestinationColumn, trainNumberColumn, trainCausesColumn);
+    }
+    
+    private TableColumn addColumn(String title, int width, String data) {
+        TableColumn column = new TableColumn(title);
+        column.setMinWidth(width);
+        column.setMaxWidth(width);
+        column.setSortable(false);
+        column.setCellValueFactory(new PropertyValueFactory<DepartingTrain, String>(data));
+        return column;
     }
 }

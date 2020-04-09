@@ -9,18 +9,26 @@ import java.util.Date;
  * @author Lauri Vuorenkoski
  */
 public class TrainStop {
-    private final Date liveEstimateTime;
     private final Date scheduledTime;
-    private final String nextStation;
     private final String stationName;
+    private Date liveEstimateTime;
+    private String nextStation;
 
-    public TrainStop(Date liveEstimateTime, Date scheduledTime, String nextStation, String stationName) {
-        this.liveEstimateTime = liveEstimateTime;
+    public TrainStop(Date scheduledTime, String stationName) {
         this.scheduledTime = scheduledTime;
-        this.nextStation = nextStation;
         this.stationName = stationName;
+        this.nextStation = "";
+        this.liveEstimateTime = null;
     }
-    
+
+    public void setLiveEstimateTime(Date liveEstimateTime) {
+        this.liveEstimateTime = liveEstimateTime;
+    }
+
+    public void setNextStation(String nextStation) {
+        this.nextStation = nextStation;
+    }
+
     public String getEstimate() {
         if (this.liveEstimateTime != null) {
             return hhmmString(liveEstimateTime);
@@ -29,7 +37,10 @@ public class TrainStop {
     }
     
     public String getTime() {
-        return hhmmString(scheduledTime);
+        if (this.scheduledTime != null) {
+            return hhmmString(this.scheduledTime);
+        }
+        return "";
     }
 
     public String getNext() {
