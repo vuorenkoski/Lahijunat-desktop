@@ -56,6 +56,10 @@ public class TrainTable {
             return;
         }
         JSONObject data = FetchData.trainTimeTable(this.trainNumber);
+        this.updateData(data);
+    }
+    
+    public void updateData(JSONObject data) throws IOException, MalformedURLException, ParseException {   
         this.commuterLineID = data.getString("commuterLineID");
         this.cancelled = data.getBoolean("cancelled");
         this.stations.clear();
@@ -68,6 +72,9 @@ public class TrainTable {
         }
         this.addStation(timeTableRows.getJSONObject(i), true);
         
+        if (!this.nextStationPassed) {
+            stations.get(0).setNextStation("X");
+        }
         this.updateTable();
     }
     

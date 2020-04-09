@@ -197,7 +197,7 @@ public class Gui extends Application {
                 "\n" +
                 "Kartta -välilehti: Kaikki lähijunat näkyvät kartalla punaisina pisteinä. Tiedot päivittyvät 15 sekunnin välein.\n" +
                 "\n" +
-                "Lähijunat -sovellus\nv. 8.4.2020\nrelease 4.5\n" +
+                "Lähijunat -sovellus\nv. 9.4.2020\nrelease 5\n" +
                 "\n" +
                 "datalähde: https://www.digitraffic.fi/rautatieliikenne/\n" +
                 "\n" +

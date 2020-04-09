@@ -1,9 +1,11 @@
-import java.io.File;
+import lahijunat.data.StationTable;
 import lahijunat.domain.DepartingTrain;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import lahijunat.domain.Station;
 import lahijunat.vrapi.FetchData;
+
+import java.io.File;
+import org.junit.Test;
+import static org.junit.Assert.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.DateFormat;
@@ -11,7 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.TimeZone;
-import lahijunat.data.StationTable;
+import javafx.scene.control.TableView;
 import org.json.JSONArray;
 
 /**
@@ -86,16 +88,17 @@ public class LahijunatTest {
     }
     
 //    @Test
-//    public void FetchDepartingTrains() throws IOException, MalformedURLException, ParseException {
+//    public void ParseDepartingTrains() throws IOException, MalformedURLException, ParseException {
 //        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 //        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-
+//
 //        Scanner fileReader = new Scanner(new File("src/test/java/asema.json"));
 //        JSONArray data = new JSONArray(fileReader.nextLine());
 //        StationTable stationTable = new StationTable();
 //        stationTable.setUicCode(Station.stationUICode("Kauklahti"));
 //        stationTable.updateData(data, dateFormat.parse("2020-04-06T18:30:00.000Z"));
-//        assertNotEquals(null,stationTable);
+//        TableView tableView = stationTable.getDataTable();
+//        assertNotEquals(null,stationTable.getDataTable());
 //    }
     
     
