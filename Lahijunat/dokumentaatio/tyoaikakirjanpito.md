@@ -12,8 +12,11 @@
 | 31.3. | 3    | testejä ja viilausta|
 | 1.4. | 2    | Luokkien uudellenjärjestelyä |
 | 2.4. | 2    | Viikko4 release valmiiksi |
-| 7.4. | 8    | Kartta välilehti |
+| 7.4. | 8    | Kartta -välilehti |
 | 8.4. | 3    | tuunailua |
+| 10.4. | 5    | Haku -välilehti |
+| 11.4. | 2    | virittelyä+javadocs |
+| 13.4. | 4    | virittelyä+dokumentaatiota |
 |    |    | | 
-| yht   | 55   | | 
+| yht   | 66   | | 
 

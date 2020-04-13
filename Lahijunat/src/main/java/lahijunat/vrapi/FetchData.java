@@ -11,7 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Luokka jonka metodeilla haetaan dataa VR:n avoimen datan rajapinnasta.
+ * Luokan metodeilla haetaan dataa VR:n avoimen datan rajapinnasta.
+ * https://www.digitraffic.fi/rautatieliikenne/
  * @author Lauri Vuorenkoski
  */
 public class FetchData {
@@ -19,8 +20,7 @@ public class FetchData {
 
     /**
      * Metodi palauttaa datan junista, jotka lähtevät asemalta seuraavan kahden tunnin aikana.
-     * 
-     * @param UICCode
+     * @param uicCode Aseman koodi
      * @return Lähtevät junat -datalista (JSONArray)
      */
     public static JSONArray departingTrainsFromStation(int uicCode) throws MalformedURLException, IOException {
@@ -42,8 +42,7 @@ public class FetchData {
        
     /**
      * Metodi palauttaa datan junan aikautalusta.
-     * 
-     * @param trainNumber
+     * @param trainNumber Junan numero
      * @return Junan aikataulu -data (JSONObject)
      */
     public static JSONObject trainTimeTable(int trainNumber) throws MalformedURLException, IOException {               
@@ -54,10 +53,8 @@ public class FetchData {
     }
     
     /**
-     * Metodi palauttaa datan kaikkien junien positioista.
-     * 
-     * @param trainNumber
-     * @return Junan aikataulu -data (JSONArray)
+     * Metodi palauttaa datan kaikkien junien koordinaateista.
+     * @return Junien koordinaatit (JSONArray)
      */
     public static JSONArray allTrainsCoordinates() throws MalformedURLException, IOException {
         URL url = new URL(BASEADDRESS + "/train-locations/latest?bbox=24,60,25,62");
@@ -66,6 +63,11 @@ public class FetchData {
         return data;
     }
     
+    /**
+     * Metodi palauttaa datan junan koordinaateista. Lista, jossa vain yksi rivi.
+     * @param trainNumber Junan numero
+     * @return Junan koordinaatit (JSONArray)
+     */
     public static JSONArray trainCoordinates(int trainNumber) throws MalformedURLException, IOException {
         URL url = new URL(BASEADDRESS + "/train-locations/latest/" + trainNumber);
         Scanner urlReader = new Scanner(url.openStream());

@@ -24,7 +24,6 @@ import org.json.JSONObject;
  * Luokka kuvaa yhden junan aikautalua.
  * @author Lauri Vuorenkoski
  */
-
 public class TrainTable {
     private TableView dataTable;
     private String commuterLineID;
@@ -44,9 +43,26 @@ public class TrainTable {
     }
     
     /**
-     * Metodi päivittää junan aikautalun. 
-     * Mikäli junan koodi on 0, junaa ei muuteta. 
-     * @param aseman koodi
+     * Metodi palauttaa junan symbolin
+     * @return Symboli (kirjain)
+     */
+    public String getCommuterLineID() {
+        return commuterLineID;
+    }
+
+    /**
+     * Metodi palauttaa junan aikataulun taulukkona
+     * @return Aikataulu (TableView)
+     */
+    public TableView getDataTable() {
+        return dataTable;
+    }
+    
+    /**
+     * Metodi päivittää junan aikataulun. 
+     * Mikäli junan koodi on 0, junaa ei muuteta. Mikäli koodi on 0, ja junaa ei ole aiemmin
+     * määritetty, metodi ei tee mitään.
+     * @param trainNumber aseman koodi
      */
     public void update(int trainNumber) throws IOException, MalformedURLException, ParseException {
         if (trainNumber != 0) {
@@ -59,6 +75,10 @@ public class TrainTable {
         this.updateData(data);
     }
     
+    /**
+     * Metodi päivittää junan aikataulun. Julkinen testausta varten.
+     * @param data Aseman data json muodossa
+     */   
     public void updateData(JSONObject data) throws IOException, MalformedURLException, ParseException {   
         this.commuterLineID = data.getString("commuterLineID");
         this.cancelled = data.getBoolean("cancelled");
@@ -114,22 +134,6 @@ public class TrainTable {
 
             stations.add(trainStop);
         }
-    }
-    
-    /**
-     * Palauttaa junan kirjaimen
-     * @return Kirjain
-     */
-    public String getCommuterLineID() {
-        return commuterLineID;
-    }
-
-    /**
-     * Palauttaa junan aikataulun taulokkona
-     * @return Aikataulu (TableView)
-     */
-    public TableView getDataTable() {
-        return dataTable;
     }
 
     private void formatDataTable() {

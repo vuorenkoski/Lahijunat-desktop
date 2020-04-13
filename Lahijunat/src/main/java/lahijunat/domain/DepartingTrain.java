@@ -31,50 +31,88 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
         this.liveEstimateTime = null;
     }
 
+    /**
+     * Metodi asettaa junan pääteaseman
+     * @param destination pääteaseman nimi
+     */
     public void setDestination(int destination) {
         this.destination = destination;
     }
 
+    /**
+     * Metodi asettaa aikautalun mukaisen lähtöajan
+     * @param scheduledTime Aikataulun mukainen lähtöaika (Date)
+     */
     public void setScheduledTime(Date scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
 
+    /**
+     * Metodi asettaa arvioidun lähtöajanajan
+     * @param liveEstimateTime Arvioitu lähtöaika
+     */
     public void setLiveEstimateTime(Date liveEstimateTime) {
         this.liveEstimateTime = liveEstimateTime;
     }
 
+    /**
+     * Metodi asettaa lähtöraiteen.
+     * @param track Lähtöraide
+     */
     public void setTrack(String track) {
         this.track = track;
     }
 
+    /**
+     * Metodi asettaa pertuuksen syyt
+     * @param causes Peruutuksen syyt (String)
+     */
     public void setCauses(String causes) {
         this.causes = causes;
     }
 
+    /**
+     * Metodi asettaa onko juna peruttu
+     * @param cancelled Peruttu (Boolean)
+     */
     public void setCancelled(boolean cancelled) {
         this.cancelled = cancelled;
     }
-
     
+    /**
+     * metodi oalauttaa junan aikautalun mukaisen lähtöajan
+     * @return Lähtöaika (String hh:mm)
+     */
     public String getTime() {
         return hhmmString(scheduledTime);
     }
     
+    /**
+     * Metodi palauttaa lähtöraiteen
+     * @return lähtöraide (String)
+     */
     public String getTrack() {
         return track;
     }
     
+    /**
+     * Metodi palauttaa junan symbolin
+     * @return Symboli (String)
+     */
     public String getCommuterLineId() {
         return commuterLineId;
     }
     
+    /**
+     * Metodi palauttaa junan numeron
+     * @return Junan junmero
+     */
     public int getTrainNumber() {
         return trainNumber;
     }
     
     /**
      * Metodi palauttaa peruutuksen syyt String muodossa.
-     * 
      * @return peruutuksen syyt
      */
     public String getCauses() {
@@ -97,8 +135,8 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
     }
     
     /**
-     * Metodi palauttaa arvioidun lähtöajan Date muodossa jos se pokkeaa normaalista.
-     * 
+     * Metodi palauttaa arvioidun lähtöajan hh:mm. Metodi palauttaa tyhjän, jos arvioitua aikaa ei ole asetettu tai
+     * jos se ei poikkea aikautalun mukaisesta aikataulusta.
      * @return Päiväys
      */
     public String getEstimate() {
@@ -110,7 +148,6 @@ public class DepartingTrain implements Comparable<DepartingTrain> {
         
     /**
      * Metodi palauttaa aikataulun mukaisen lähtöajan Date muodossa.
-     * 
      * @return Päiväys
      */
     public Date getScheduledTime() {

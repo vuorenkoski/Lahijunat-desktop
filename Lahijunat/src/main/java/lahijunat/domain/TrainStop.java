@@ -21,14 +21,27 @@ public class TrainStop {
         this.liveEstimateTime = null;
     }
 
+    /**
+     * Metodi asettaa arvioidun lähtöajan.
+     * @param liveEstimateTime arvioitu lähtöaika
+     */
     public void setLiveEstimateTime(Date liveEstimateTime) {
         this.liveEstimateTime = liveEstimateTime;
     }
 
+    /**
+     * Metodi asettaa merkin aseman kohdalle listaan. Merkin "X" asettamaninen tarkoittaa
+     * että juna pysähtyy seuraavaksi tälla asemalla.
+     * @param nextStation
+     */
     public void setNextStation(String nextStation) {
         this.nextStation = nextStation;
     }
 
+    /**
+     * Metodi palauttaa arvioidun lähtöajan hh:mm muodossa
+     * @return Arivoitu lähtöaika
+     */
     public String getEstimate() {
         if (this.liveEstimateTime != null) {
             return hhmmString(liveEstimateTime);
@@ -36,6 +49,11 @@ public class TrainStop {
         return "";
     }
     
+    /**
+     * Metodi palauttaa aikataulun mukaisen lähtöajan hh:mm muodossa. Mikäli tätä ei ole 
+     * asetettu, metodi palauttaa tyhjän merkkijonon.
+     * @return Aikataulun mukainen lähtöaika
+     */
     public String getTime() {
         if (this.scheduledTime != null) {
             return hhmmString(this.scheduledTime);
@@ -43,10 +61,18 @@ public class TrainStop {
         return "";
     }
 
+    /**
+     * Metodi palauttaa mahdollisen "Seuraava asema" -merkin.
+     * @return "" tai "X"
+     */
     public String getNext() {
         return nextStation;
     }
 
+    /**
+     * Metodi palauttaa aseman koko nimen
+     * @return Aseman nimi
+     */
     public String getStation() {
         return stationName;
     }

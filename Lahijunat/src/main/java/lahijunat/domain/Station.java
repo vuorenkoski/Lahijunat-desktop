@@ -42,7 +42,7 @@ public class Station {
     
     /**
      * Metodi palauttaa juna-aseman koko nimen kun sille annetaan parametrina UIC koodi.Mikäli asemaa ei löydy listalta, palautetaan "undefined".
-     * @param UICCode
+     * @param uicCode
      * @return Aseman koko nimi
      */
     public static String stationName(int uicCode) {
@@ -55,7 +55,7 @@ public class Station {
     
     /**
      * Metodi palauttaa juna-aseman lyhytnimen kun sille annetaan parametrina UIC koodi.Mikäli asemaa ei löydy listalta, palautetaan "---"
-     * @param UICCode
+     * @param uicCode
      * @return Aseman lyhenne
      */
     public static String stationShortName(int uicCode) {
@@ -68,7 +68,7 @@ public class Station {
     
     /**
      * Metodi palauttaa juna-aseman UIC koodin  kun sille annetaan parametrina koko nimi.Mikäli asemaa ei löydy listalta, palautetaan -1.
-     * @param Name
+     * @param name
      * @return Aseman UIcode
      */
     public static int stationUICode(String name) {

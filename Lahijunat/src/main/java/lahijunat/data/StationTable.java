@@ -36,8 +36,9 @@ public class StationTable {
     
     /**
      * Metodi päivittää asemalta lähtevien junien tiedot. 
-     * Mikäli aseman koodi on 0, asemaa ei muuteta. 
-     * @param aseman koodi
+     * Mikäli aseman koodi on 0, käytetään haussa aiempaa asemaa. Mikäli aseman koodi on 0 ja aiempaa asemaa ei ole määritelty
+     * metodi ei tee mitään.
+     * @param uicCode aseman koodi
      */
     public void update(int uicCode) throws MalformedURLException, IOException, ParseException {
         if (uicCode != 0) {
@@ -50,6 +51,11 @@ public class StationTable {
         this.updateData(data, new Date(System.currentTimeMillis()));
     }
     
+    /**
+     * Metodi päivittää asemalta lähtevien junien tiedot. Julkinen testausta varten.
+     * @param data Aseman data json muodossa
+     * @param currentTime aika jota aiempia lähteneitä junia ei huomioida
+     */    
     public void updateData(JSONArray data, Date currentTime) throws ParseException {
         this.trainArray.clear();
         for (int i = 0; i < data.length(); i++) {
@@ -63,6 +69,30 @@ public class StationTable {
         // Siirretaan data taulukkoon
         this.dataTable.getItems().clear();
         this.dataTable.getItems().addAll(FXCollections.observableArrayList(this.trainArray));
+    }
+    
+    /**
+     * Metodilla voi vaihtaa aseman koodia
+     * @param uicCode aseman koodi
+     */
+    public void setUicCode(int uicCode) {
+        this.uicCode = uicCode;
+    }
+    
+    /**
+     * Metodi palauttaa aseman koodin. 
+     * @return aseman koodi (int)
+     */
+    public int getUicCode() {
+        return uicCode;
+    }
+
+    /**
+     * Metodi palauttaa taulukon jossa asemalta lähtevät junat. 
+     * @return Taulukko lähtevistä junista (TableView)
+     */
+    public TableView getDataTable() {
+        return dataTable;
     }
     
     private DepartingTrain parseTrain(int uicCode, JSONObject data) throws ParseException {
@@ -88,26 +118,6 @@ public class StationTable {
 
         return train;
         
-    }
-
-    public void setUicCode(int uicCode) {
-        this.uicCode = uicCode;
-    }
-    
-    /**
-     * Metodi palauttaa aseman koodin. 
-     * @return aseman koodi (int)
-     */
-    public int getUicCode() {
-        return uicCode;
-    }
-
-    /**
-     * Metodi palauttaa taulukon jossa asemalta lähtevät junat. 
-     * @return Taulukko lähtevistä junista (TableView)
-     */
-    public TableView getDataTable() {
-        return dataTable;
     }
     
     private void formatDataTable() {

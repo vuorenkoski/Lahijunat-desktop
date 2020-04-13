@@ -17,26 +17,40 @@ import org.json.JSONArray;
  */
 public class TrainMap {
     Canvas trainMap;
-    int uicCode;
+    int trainNumber;
 
-    public TrainMap(int uicCode) {
-        this.uicCode = uicCode;
+    public TrainMap(int trainNumber) {
+        this.trainNumber = trainNumber;
         this.trainMap = new Canvas(650, 450);
     }
      
-    public void setUicCode(int uicCode) throws IOException {
-        this.uicCode = uicCode;
+    /**
+     * Metodilla asetetaan junan numero jonka paikka kartalla näytetään. Mikäli junan numeroksi annetaan 0,
+     * näytetään kartalla kaikki lähijunat. Jos arvoksi annetaan -1, näytetään vain kartta.
+     * @param trainNumber Junan numero
+     * @throws IOException
+     */
+    public void setTrainNumber(int trainNumber) throws IOException {
+        this.trainNumber = trainNumber;
         this.update();
     }
 
+    /**
+     * Metodilla päivitetään junan/junien nykyinen sijainti
+     * @throws MalformedURLException
+     * @throws IOException
+     */
     public void update() throws MalformedURLException, IOException {
         this.trainMap.getGraphicsContext2D().clearRect(0, 0, trainMap.getWidth(), trainMap.getHeight());
         this.insertStations();
+        if (this.trainNumber < 0) {
+            return;
+        }
         JSONArray data;
-        if (this.uicCode == 0) {
+        if (this.trainNumber == 0) {
             data = FetchData.allTrainsCoordinates();
         } else {
-            data = FetchData.trainCoordinates(uicCode);
+            data = FetchData.trainCoordinates(trainNumber);
         }
         trainMap.getGraphicsContext2D().setFill(Color.RED);
         for (int i = 0; i < data.length(); i++) {
@@ -44,6 +58,14 @@ public class TrainMap {
             int y = (int) ((data.getJSONObject(i).getJSONObject("location").getJSONArray("coordinates").getDouble(1) * 1000) - 60119);
             trainMap.getGraphicsContext2D().fillOval((int) (x - 130) * 1.2, (int) (450 - y * 2) * 1.2, 5, 5);  
         }
+    }
+    
+    /**
+     * Metodi palauttaa kartan.
+     * @return kartta
+     */
+    public Canvas getTrainMap() {
+        return trainMap;
     }
 
     private void insertStations() {
@@ -58,9 +80,4 @@ public class TrainMap {
         trainMap.getGraphicsContext2D().fillText("Tikkurila", 510, 125);
         trainMap.getGraphicsContext2D().fillText("Kivistö", 290, 75);
     }
-
-    public Canvas getTrainMap() {
-        return trainMap;
-    }
-    
 }
