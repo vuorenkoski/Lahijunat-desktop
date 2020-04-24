@@ -44,3 +44,10 @@ mvn package
 ```
 java -jar target/Lahijunat-0.9.jar
 ```
+
+
+JavaDoc luonti
+
+```
+mvn javadoc:javadoc
+```
