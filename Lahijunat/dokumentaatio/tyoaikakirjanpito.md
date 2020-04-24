@@ -17,6 +17,7 @@
 | 10.4. | 5    | Haku -välilehti |
 | 11.4. | 2    | virittelyä+javadocs |
 | 13.4. | 4    | virittelyä+dokumentaatiota |
+| 24.4. | 4    | viikko6 viimeistelyä |
 |    |    | | 
-| yht   | 66   | | 
+| yht   | 70   | | 
 

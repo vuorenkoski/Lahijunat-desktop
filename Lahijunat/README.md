@@ -1,6 +1,6 @@
 # Lähijunat -sovellus
 
-Sovelluksella saa reaaliaikaista tietoa VR:n lähijunien liikkeistä ja aikatauluista. Käyttöliittymä koostuu neljästä eri sivusta/lehdestä: tietyn aseman lähtevät junat, tietyn junan liikumisen seuraaminen, viimeisimmät haut, kaikkien junien paikannus kartalla.
+Sovelluksella saa reaaliaikaista tietoa VR:n lähijunien liikkeistä ja aikatauluista. Käyttöliittymä koostuu viidestä eri välilehdestä: tietyn aseman lähtevät junat, tietyn junan liikumisen seuraaminen, viimeisimmät haut, kaikkien junien paikannus kartalla, käyttöohje.
 
 ## Dokumentaatio
 
@@ -40,6 +40,7 @@ Suorituskelpoinen jar-tiedosto
 ```
 mvn package
 ```
+
 ```
 java -jar target/Lahijunat-0.9.jar
 ```

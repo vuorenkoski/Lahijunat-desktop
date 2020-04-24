@@ -23,7 +23,7 @@ Lisätty oma kartta -välilehti, sekä karttanäkymä junan aikautalut -välileh
 [Release viikko 5](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko5)
 
 ### Release viikko 6
-Lisätty aiemmat haut -välilehti
+Lisätty aiemmat haut -välilehti ja toiminnallisuus.
 
 [Release viikko 6](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko6)
 

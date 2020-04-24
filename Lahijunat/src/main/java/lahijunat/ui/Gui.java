@@ -221,7 +221,7 @@ public class Gui extends Application {
         helpView.getChildren().add(new Text(this.helpText()));
     }
     
-    private String errorMessage (Exception ex) {
+    private String errorMessage(Exception ex) {
         System.out.println(ex.toString());
         if (ex.toString().equals("java.net.UnknownHostException: rata.digitraffic.fi")) {
             return "VIRHE: Ei yhteyttä datalähteeseen (rata.digitraffic.fi).";
@@ -235,17 +235,17 @@ public class Gui extends Application {
     
     private String helpText() {
         return "" +
-                "Asema -välilehti: Valitse asema pudotusvalikosta. Kun asema -välilehdelle kaksoisklikkaa junaa, junan aikautaulutiedot tulevat Juna -välilehdelle.\n" +
+                "Asema -välilehti: Valitse pääkaupunkiseudulla oleva asema pudotusvalikosta. Kun asema -välilehdellä kaksoisklikkaa junaa, junan aikautaulutiedot tulevat Juna -välilehdelle.\n" +
                 "\n" +
-                "Juna -välilehti: Valitun junan aikataulutiedot. Mikäli juna on myöhässä, näkyy rivilla myös arvioitu lähtöaika. Junan seuraava asema on merkitty X-merkillä. Junan sijainti näkyy kartalla punaisena pisteenä. Tiedot päivittyvät kahden minuutin välein.\n" +
+                "Juna -välilehti: Välilehdellä näkyy valitun junan aikataulutiedot. Mikäli juna on myöhässä, näkyy rivilla myös arvioitu lähtöaika. Junan seuraava asema on merkitty X-merkillä. Junan sijainti näkyy kartalla punaisena pisteenä. Tiedot päivittyvät kahden minuutin välein.\n" +
                 "\n" +
                 "Kartta -välilehti: Kaikki lähijunat näkyvät kartalla punaisina pisteinä. Tiedot päivittyvät 15 sekunnin välein.\n" +
                 "\n" +
-                "Haku -välilehti: Kun asema -välilehdellä haetaan junan aikautalutiedot, tallentuu haku automaattisesti hakulistalle. Listalla näkyy 20 viimeistä hakua. Kaksoisklikkaamalla listalla alevaa hakua, tulee junan tiedot juna -välilehdelle.\n" +
+                "Haku -välilehti: Kun asema -välilehdellä haetaan junan aikataulutiedot, tallentuu haku automaattisesti hakulistalle. Listalla näkyy 20 viimeistä hakua. Kaksoisklikkaamalla listalla olevaa hakua, tulee junan tiedot juna -välilehdelle.\n" +
                 "\n" +
-                "Virheilmoitukset tulostuvat sovelluksen alareunaan\n" +
+                "Virheilmoitukset tulostuvat sovelluksen alareunaan.\n" +
                 "\n" +
-                "Lähijunat -sovellus 0.9\nv. 12.4.2020\nrelease 6\n" +
+                "Lähijunat -sovellus 0.9\nv. 24.4.2020\nrelease 6\n" +
                 "\n" +
                 "datalähde: https://www.digitraffic.fi/rautatieliikenne/\n" +
                 "\n" +

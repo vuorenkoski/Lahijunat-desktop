@@ -1,13 +1,13 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen käyttötarkoitus
-Sovelluksella saa reaaliaikaista tietoa VR:n lähijunien liikkeistä ja aikatauluista.
+Sovelluksella saa reaaliaikaista tietoa VR:n lähijunien liikkeistä ja aikatauluista pääkaupunkiseudulla.
 
 ## Käyttäjät
 Sovelluksella on vain yksi käyttäjäryhmä: normaalit käyttäjät jotka hakevat tietoa lähijunista.
 
 ## Käyttöliittymä
-Käyttöliittymä koostuu neljästä eri sivusta/lehdestä: tietyn aseman lähtevät junat, tietyn junan liikumisen seuraaminen, viimeisimmät haut, kaikkien junien paikannus kartalla.
+Käyttöliittymä koostuu viidestä eri sivusta/lehdestä: tietyn aseman lähtevät junat, tietyn junan liikumisen seuraaminen, viimeisimmät haut, kaikkien junien paikannus kartalla, käyttöohje.
 
 ## Suunnitellut toiminnallisuudet
 Asematiedot: Käyttäjä valitsee aseman, ja sovellus näyttää seuraavan parin tunnin junien lähdöt valitulta asemalta: aikautalun mukainen lähtöaika, todelinen lähtöaika, raide, junan tunnus. Mikäli juna on peruutettu, sovellus näyttää syykoodin.
@@ -26,5 +26,5 @@ Ohjelma tallentaa käyttäjän viimeiset kymmenen hakua (asemat ja junat). Näm�
 - Viikko 6: Aiemmat haut -välilehti
 
 ## Jatkokehtiysideoita
+- laajentaminen pääkaupunkiseudun ulkopuolelle
 - miten voitaisiin hyödyntää kulkutietoviestit-dataa?
-

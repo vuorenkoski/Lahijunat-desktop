@@ -5,7 +5,7 @@ Ohjelman pakkausrakenne on nelitasoinen. Ylimmällä tasolla on lahijunat.ui jok
 
 Toisella tasolla on lahijunat.data pakkaus, joka sisältämän luokat luo sovelluksen näyttämät taulukot ja kartat.
 
-Kolmannella tasolla on pakkaus lahijunat.vrapi, jonka sisältämän luokan metodit hakevat datan VR:n avoimesta rajapinnasta. Pakkauksen lahijunat.data luokat hyädyntävät näitä metodeja.
+Kolmannella tasolla on pakkaus lahijunat.vrapi, jonka sisältämän luokan metodit hakevat datan VR:n avoimesta rajapinnasta. Pakkauksen lahijunat.data luokat hyödyntävät näitä metodeja.
 
 Neljännellä tasolla (lahijunat.domain) on luokat, jotka kuvaavat sovelluksen käyttämiä tietorakenteita (asemalta lähtevä juna, tehty haku, junan pysähdys). Pakkauksen luokka Station sisältää dataa pääkaupunkiseudun juna-asemista. Tämän luokan tietoja hyödyntää useampi luokka. 
 
@@ -30,7 +30,7 @@ Domain -pakkauksen luokkia hyödyntävät korkeamman tason data -pakkauksen luok
 SearchTable -luokka erooa muista data -pakkauksen luokiosta. Sen datalähde ei ole VR:n avoin rajapinta, vaan paikallinen "searches.csv" tiedosto. Tiedosto päivitetään jokaisen haun yhteydessä. 
 
 ## Tietojen pysyväistallennus
-Aiemmat haut tallenetaan tiedostoon "searches.csv". Tiedosto luodaan kun ohjelma käynnistetään mikäli sitä ei jo aiemmin ole. Mikäli se on olemassa, tiedoston tiedot ladataan muistiin. Kun käyttäjä tekee haun, haku päivitetään saman tiedon tiedostoon.
+Aiemmat haut tallenetaan tiedostoon "searches.csv" csv-muodossa. Tiedosto luodaan kun ohjelma käynnistetään mikäli sitä ei jo aiemmin ole. Mikäli se on olemassa, tiedoston tiedot ladataan muistiin. Kun käyttäjä tekee haun, haku päivitetään samantien tiedostoonkin.
 
 Tiedostoon tallennetaan 20 viimeisen haun tiedot. Ensimmäiseen kenttään tallennetaan junan numero, ja toiseen String muodossa tarkempia tietoja hausta.
 
@@ -45,7 +45,7 @@ Esimerkki formaatista:
 
 ### Asemalta lähtevien junien haku
 
-Ohjelman käynnistyessä luodaan uusi StationTable luokan olio, joka kiinnitetään näkyviin Asema -välilehteen. Samoin käynnistyksen yhteydessä  Station luokan metodilla haetaan lista pääkaupunkiseudun asemista. 
+Ohjelman käynnistyessä luodaan uusi StationTable luokan olio, joka kiinnitetään näkyviin Asema -välilehteen. Samoin käynnistyksen yhteydessä pudotusvalikkoa varten haetaan Station luokan metodilla lista pääkaupunkiseudun asemista. 
 
 Toiminnallisuuden aluksi käyttäjä valitsee valikosta yhden aseman (alla olevassa esimerkissä "Espoo"). Station luokan metodin avulla haetaan tämän aseman koodi.
 
