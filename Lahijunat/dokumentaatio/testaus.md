@@ -1,7 +1,7 @@
 # Testausdokumentti
 
 ## Yksikkö- ja integraatiotestaus
-Suurimmalle osalle luokkia on luotu yksikkötestit. 
+Suurimmalle osalle luokkia on luotu yksikkötestit. Joidenkin testien junan numeroksi pitää muuttaa juuri sillä hetkellä haettavissa oleva juna.
 
 Tärkeimmille luokille se ei kuitenkaan onnistunut: StationTable, TrainTable ja Search table. Nämä luokat käsittelevät avoimen rajapinnan kautta saatua dataa. Vaikka näille luokille luotiin mahdollisuus ottaa syötteenä avoimesta rajapinnasta ladattua testidataa, homma kaatui tällaiseen virheilmoitukseen:
 
