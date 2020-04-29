@@ -2,6 +2,10 @@ import lahijunat.data.StationTable;
 import lahijunat.domain.DepartingTrain;
 import lahijunat.domain.Station;
 import lahijunat.vrapi.FetchData;
+import lahijunat.data.SearchTable;
+import lahijunat.data.TrainMap;
+import lahijunat.domain.SearchItem;
+import lahijunat.domain.TrainStop;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,15 +19,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.TimeZone;
-import javafx.scene.control.TableView;
-import lahijunat.data.SearchTable;
-import lahijunat.data.TrainMap;
-import lahijunat.domain.SearchItem;
-import lahijunat.domain.TrainStop;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Before;
 
+import javafx.scene.control.TableView;
 
 /**
  * Yksikkötestejä Lähijunat -sovellukselle
@@ -138,7 +138,7 @@ public class LahijunatTest {
 
     @Test
     public void FetchTrainTableReturnsData() throws IOException, MalformedURLException, ParseException {
-        JSONObject station = FetchData.trainTimeTable(8468);
+        JSONObject station = FetchData.trainTimeTable(8706);
         assertNotEquals(null,station);
     }
 
@@ -150,7 +150,7 @@ public class LahijunatTest {
 
     @Test
     public void FetchTrainCoordinatesReturnsData() throws IOException, MalformedURLException, ParseException {
-        JSONArray data = FetchData.trainCoordinates(8468);
+        JSONArray data = FetchData.trainCoordinates(8706);
         assertNotEquals(null,data);
     }
     
@@ -160,7 +160,7 @@ public class LahijunatTest {
     @Test
     public void CreateMap() throws IOException, MalformedURLException, ParseException {
         TrainMap map = new TrainMap(0);
-        map.setTrainNumber(8468);
+        map.setTrainNumber(8706);
         assertNotEquals(null,map.getTrainMap());
     }
 

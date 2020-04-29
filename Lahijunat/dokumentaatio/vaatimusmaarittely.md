@@ -24,6 +24,7 @@ Ohjelma tallentaa käyttäjän viimeiset kymmenen hakua (asemat ja junat). Näm�
 - Viikko 4: Lisätty graafinen käyttöliittymä, junan aikautaulutiedot -välilehti ja ohje -välilehti. 
 - Viikko 5: Lisätty oma kartta -välilehti, sekä karttanäkymä junan aikautalut -välilehdelle
 - Viikko 6: Aiemmat haut -välilehti
+- Viikko 7: Viimeistelyä
 
 ## Jatkokehtiysideoita
 - laajentaminen pääkaupunkiseudun ulkopuolelle

@@ -85,6 +85,7 @@ public class Gui extends Application {
                     if (mapTab.isSelected()) {
                         trainsMap.update();
                     }
+                    errorText.setText("");
                 } catch (Exception ex) {
                     errorText.setText(errorMessage(ex));
                 }                  
@@ -127,6 +128,7 @@ public class Gui extends Application {
                             trainNumber.setText("Juna: " + train);
                             tabPane.getSelectionModel().select(trainTab);
                             searchTable.add(String.valueOf(train.getTrainNumber()), train.toString());
+                            errorText.setText("");
                         } catch (Exception ex) {
                             errorText.setText(errorMessage(ex));
                         }      
@@ -149,6 +151,7 @@ public class Gui extends Application {
                             trainTab.setText("Juna: " + item.getTrainInfo());
                             trainNumber.setText("Juna: " + item.getTrainInfo());
                             tabPane.getSelectionModel().select(trainTab);
+                            errorText.setText("");
                         } catch (Exception ex) {
                             errorText.setText(errorMessage(ex));
                         }        
@@ -164,7 +167,8 @@ public class Gui extends Application {
                     try {
                         trainMap.update();
                         trainTable.update(0);
-                    } catch (Exception ex) {
+                        errorText.setText("");
+                   } catch (Exception ex) {
                         errorText.setText(errorMessage(ex));
                     }            
                 }
@@ -191,6 +195,7 @@ public class Gui extends Application {
                 try {
                     stationTable.update(Station.stationUICode(comboBox.getValue().toString()));
                     stationTab.setText("Asema: " + comboBox.getValue().toString());
+                    errorText.setText("");
                 } catch (Exception ex) {
                     errorText.setText(errorMessage(ex));
                 }
@@ -207,6 +212,7 @@ public class Gui extends Application {
         searchView.setLeft(searchTable.getDataTable());
         try {
             searchTable.init("searches.csv");
+            errorText.setText("");
         } catch (Exception ex) {
             errorText.setText(errorMessage(ex));
         }  
@@ -225,6 +231,10 @@ public class Gui extends Application {
         System.out.println(ex.toString());
         if (ex.toString().equals("java.net.UnknownHostException: rata.digitraffic.fi")) {
             return "VIRHE: Ei yhteyttä datalähteeseen (rata.digitraffic.fi).";
+        }
+
+        if (ex.toString().equals("org.json.JSONException: JSONArray[0] not found.")) {
+            return "VIRHE: Haettua tietoa ei löytynyt.";
         }
         
         if (ex.toString().startsWith("java.io.FileNotFoundException")) {
@@ -245,7 +255,7 @@ public class Gui extends Application {
                 "\n" +
                 "Virheilmoitukset tulostuvat sovelluksen alareunaan.\n" +
                 "\n" +
-                "Lähijunat -sovellus 0.9\nv. 24.4.2020\nrelease 6\n" +
+                "Lähijunat -sovellus 0.95\nv. 29.4.2020\nrelease 6.1\n" +
                 "\n" +
                 "datalähde: https://www.digitraffic.fi/rautatieliikenne/\n" +
                 "\n" +

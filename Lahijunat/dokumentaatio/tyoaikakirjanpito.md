@@ -18,6 +18,7 @@
 | 11.4. | 2    | virittelyä+javadocs |
 | 13.4. | 4    | virittelyä+dokumentaatiota |
 | 24.4. | 4    | viikko6 viimeistelyä |
+| 29.4. | 3    | testauksen virittelyä |
 |    |    | | 
-| yht   | 70   | | 
+| yht   | 73   | | 
 

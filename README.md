@@ -27,6 +27,8 @@ Lisätty aiemmat haut -välilehti ja toiminnallisuus.
 
 [Release viikko 6](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko6)
 
+### Release viikko 6
+Viimeistelyä
 
 ## Viikkotehtävät
 

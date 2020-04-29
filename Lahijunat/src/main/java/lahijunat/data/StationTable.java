@@ -94,6 +94,10 @@ public class StationTable {
     public TableView getDataTable() {
         return dataTable;
     }
+
+    public ArrayList<DepartingTrain> getTrainArray() {
+        return trainArray;
+    }
     
     private DepartingTrain parseTrain(int uicCode, JSONObject data) throws ParseException {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
