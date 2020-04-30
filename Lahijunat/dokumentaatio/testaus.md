@@ -1,32 +1,20 @@
 # Testausdokumentti
 
 ## Yksikkö- ja integraatiotestaus
-Suurimmalle osalle luokkia on luotu yksikkötestit. Joidenkin testien junan numeroksi pitää muuttaa juuri sillä hetkellä haettavissa oleva juna.
+Suurimmalle osalle luokkia on luotu yksikkötestit. Testit on jaettu kolmeen luokkaan pakkausten mukaan.
 
-Tärkeimmille luokille se ei kuitenkaan onnistunut: StationTable, TrainTable ja Search table. Nämä luokat käsittelevät avoimen rajapinnan kautta saatua dataa. Vaikka näille luokille luotiin mahdollisuus ottaa syötteenä avoimesta rajapinnasta ladattua testidataa, homma kaatui tällaiseen virheilmoitukseen:
+Osa testeistä hyödyntää json muotoista testidataa, joka on tallennettu serc/test kansioon. Testidata on todellista Digitrafic rajapinnan dataa. Osa yksikkötesteistä vaatii internetyhteyden toimiakseen.
 
-```
-java.lang.ExceptionInInitializerError
-	at lahijunat.data.StationTable.formatDataTable(StationTable.java:132)
-	at lahijunat.data.StationTable.<init>(StationTable.java:32)
-	at LahijunatTest.ParseDepartingTrains(LahijunatTest.java:200)
-        ...
-```
+Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen rivikattavuus on 96% ja haarautumakattavuus 84%
 
-Testit kaatuvat tähän käskyyn:
-
-```
-this.dataTable = new TableView();
-```
-
-Tämän takia testikattavuus jäi vajaaksi. Rivikattavuus 63% ja haarautumakattavuus vain 21%.
+<img src="testReport.png">
 
 ## Järjestelmätestaus
 Sovellusta on testattu kahdessa ympäristössä: omalla tietokoneella (Kubuntu 19.10) sekä yliopiston cubli ympäristössä. 
 
-Sovelluksen kaikki toiminnallisuudet on testattu manuaalisesti varsin perinpohjaisesti. Sovellukselle ei pysty syöttämään väärää tietoa tai saada sitä kaatumaan. Sovellusta on testattu hakemistossa, johon on ei ole kirjoitiusöoikeutta. Ohjelmaa on myös testattu tilanteissa jossa tiedosto tai se puuttuu.
+Sovelluksen kaikki toiminnallisuudet on testattu manuaalisesti varsin perinpohjaisesti. Sovellukselle ei pysty syöttämään väärää tietoa tai saada sitä kaatumaan. Sovellusta on testattu hakemistossa, johon on ei ole kirjoitusoikeutta. Ohjelmaa on myös testattu tilanteissa, jossa tiedosto tai se puuttuu.
 
-Sovellusta ei ole ollenkaan testattu tilanteissa jossa digitrafic -rajapinta antaa virheellistä tai normaalista poikkeavaa dataa. Ohjelma antaa käyttäjälleen tällöin varsin kryptisiä virheilmoituksia.
+Sovellusta ei ole ollenkaan testattu tilanteissa, jossa digitrafic -rajapinta antaa virheellistä tai normaalista poikkeavaa dataa. Ohjelma antaa käyttäjälleen tällöin varsin kryptisiä virheilmoituksia.
 
 Mikäli sovelluksen käynnistyessä sen työhakemistossa on korruptoitunut seraches.csv tiedosto, sovellus ei toimi odotetulla tavalla.
 

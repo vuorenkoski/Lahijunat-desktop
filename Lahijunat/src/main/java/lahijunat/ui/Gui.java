@@ -168,7 +168,7 @@ public class Gui extends Application {
                         trainMap.update();
                         trainTable.update(0);
                         errorText.setText("");
-                   } catch (Exception ex) {
+                    } catch (Exception ex) {
                         errorText.setText(errorMessage(ex));
                     }            
                 }
@@ -255,7 +255,7 @@ public class Gui extends Application {
                 "\n" +
                 "Virheilmoitukset tulostuvat sovelluksen alareunaan.\n" +
                 "\n" +
-                "Lähijunat -sovellus 0.95\nv. 29.4.2020\nrelease 6.1\n" +
+                "Lähijunat -sovellus 1.0\nv. 30.4.2020\nrelease 6.9\n" +
                 "\n" +
                 "datalähde: https://www.digitraffic.fi/rautatieliikenne/\n" +
                 "\n" +

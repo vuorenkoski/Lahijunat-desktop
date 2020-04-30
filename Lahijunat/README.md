@@ -8,6 +8,7 @@ Sovelluksella saa reaaliaikaista tietoa VR:n lähijunien liikkeistä ja aikataul
 * [Työaikakirjanpito](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/tyoaikakirjanpito.md)
 * [Arkkitehtuurikuvaus](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/arkkitehtuuri.md)
 * [Käyttöohje](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/kayttoohje.md)
+* [Testausdokumentti](https://github.com/vuorenkoski/ot-harjoitustyo/blob/master/Lahijunat/dokumentaatio/testaus.md)
 
 ## Komentorivitoiminnot
 
@@ -42,7 +43,7 @@ mvn package
 ```
 
 ```
-java -jar target/Lahijunat-0.9.jar
+java -jar target/Lahijunat-1.0.jar
 ```
 
 

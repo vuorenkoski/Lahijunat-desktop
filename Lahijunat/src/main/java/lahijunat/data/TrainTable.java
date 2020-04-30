@@ -11,7 +11,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.TimeZone;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableColumn;
@@ -57,7 +56,11 @@ public class TrainTable {
     public TableView getDataTable() {
         return dataTable;
     }
-    
+
+    public ArrayList<TrainStop> getStations() {
+        return stations;
+    }
+        
     /**
      * Metodi päivittää junan aikataulun. 
      * Mikäli junan koodi on 0, junaa ei muuteta. Mikäli koodi on 0, ja junaa ei ole aiemmin
