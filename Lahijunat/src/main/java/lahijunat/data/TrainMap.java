@@ -76,8 +76,15 @@ public class TrainMap {
                     (int) (450 - coordinates.get(i).getValue() * 2) * 1.2, 7, 7);
         }
         trainMap.getGraphicsContext2D().fillText("Helsinki", 390, 415);
+        trainMap.getGraphicsContext2D().fillText("Pasila", 395, 360);
+        trainMap.getGraphicsContext2D().fillText("Myyrmäki", 275, 207);
+        trainMap.getGraphicsContext2D().fillText("Leppävaara", 220, 280);
+        trainMap.getGraphicsContext2D().strokeLine(270, 285, 290, 295);
+        trainMap.getGraphicsContext2D().fillText("Malmi", 550, 230);
+        trainMap.getGraphicsContext2D().fillText("Oulunkylä", 495, 285);
         trainMap.getGraphicsContext2D().fillText("Espoo", 60, 335);
-        trainMap.getGraphicsContext2D().fillText("Tikkurila", 510, 125);
-        trainMap.getGraphicsContext2D().fillText("Kivistö", 290, 75);
+        trainMap.getGraphicsContext2D().fillText("Kauklahti", 53, 382);
+        trainMap.getGraphicsContext2D().fillText("Tikkurila", 510, 130);
+        trainMap.getGraphicsContext2D().fillText("Kivistö", 290, 80);
     }
 }

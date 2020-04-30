@@ -23,3 +23,4 @@ Sovelluksen pitäisi kyetä tarkistamaan että searches.csv ei ole korruptoitunu
 
 Sovellus ei hae säännöllisesti tietoa pääkaupunkiseudulla olevista asemista, vaikka tämä olisi rajapinnan kautta mahdollista. Se ei siis osaa pävittää mahdollisia uusia asemia tms.
 
+Sovelluksesta puuttuu junien pääteasemia lukuunottamatta sellaiset asemat, jotka eivät sijaitse pääkaupunkiseudulla. Tällöin aikautaluun tulostuu "undefined". Kartasta puuttuu useimpien asemien nimet.
