@@ -19,6 +19,7 @@
 | 13.4. | 4    | virittelyä+dokumentaatiota |
 | 24.4. | 4    | viikko6 viimeistelyä |
 | 29.4. | 3    | testauksen virittelyä |
+| 1.5. | 3    | viimeistely |
 |    |    | | 
-| yht   | 73   | | 
+| yht   | 76   | | 
 

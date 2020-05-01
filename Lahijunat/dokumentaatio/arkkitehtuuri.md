@@ -23,7 +23,7 @@ Käyttöliittymän alaosan teksikenttään tulostetaan mahdolliset datan haussa 
 ## Sovelluslogiikka
 Sovelluksen alimman tason datamallit luo domain -pakkauksen luokat. SearchItem tyypinen olio on yksi rivi hakulistassa. DepartingTrain tyyppinen olio on yksi rivi asemalta lähtevien junien listassa. TrainStop tyyppinen olio on puolestaan yksi rivi junan aikataulussa. 
 
-Station luokka poikkeaa muista tämän pakkauksen luokista. Se sisältää vain metodeja ja dataa joita muut luokat hyödyntävät. Luokassa on tiedot pääkaupunkiseudun juna-asemien nimistä, lyhytnimistä, koodeista ja sijainneista. Tämän luokan metodien avulla voi esimerkiksi selvittää mikä on tietyn koodin omaavan juna-aseman todellinen nimi. 
+Station luokka poikkeaa muista tämän pakkauksen luokista. Se sisältää vain metodeja ja dataa, joita muut luokat hyödyntävät. Luokassa on tiedot pääkaupunkiseudun juna-asemien nimistä, lyhytnimistä, koodeista ja sijainneista. Tämän luokan metodien avulla voi esimerkiksi selvittää mikä on tietyn koodin omaavan juna-aseman todellinen nimi. 
 
 Domain -pakkauksen luokkia hyödyntävät korkeamman tason data -pakkauksen luokat, jotka koostavat käyttäjälle näytettävän datan. Ne muokkaat datan myös näytettävään muotoon, sekä sisältävät raakadatan käsittelyyn ja päivitykseen tarpelliset toiminnallisuudet.
 
@@ -54,4 +54,22 @@ Aseman koodi välitetään käynnistyksen yhteydessä luodulle StationTable luok
 Jokaista lähtevää junaa kohden luodaan yksi DepartingTrain luokan olio.
 
 <img src="sekvenssikaavio.png">
+
+### Junan aikataulutietojen haku
+
+Ohjelman käynnistyessä luodaan uusi TrainTable ja TrainMap luokan oliot, jotka kiinnitetään näkyviin Juna -välilehteen. 
+
+Kun Asema -välilehdellä tai Haku -välilehdellä klikataan junan tietoja, pävitetään TrainTable ja TrainMap luokan olioden tieto junasta. Tällöin olio päivittää kyseisen junan tiedot VR:N avoimen rajapinnan kautta.
+
+Kun välilehti on valittuna, kutsuu käyttöliittymä olioiden päivitysmetodia kahden minuutin välein. 
+
+### Junat kartalla
+
+Ohjelman käynnistyessä luodaan uusi TrainMap luokan olio, jotka kiinnitetään näkyviin Kartta -välilehteen. 
+
+Kun välilehti on valittuna, kutsuu käyttöliittymä olioiden päivitysmetodia 10 sekunnin välein. 
+
+### Aiemmat haut
+
+Ohjelman käynnistyessä luodaan uusi SearchTable luokan olio, jotka kiinnitetään näkyviin Haku -välilehteen. Tämän jälkeen kutsutaan init -metodia, joka lataa haut tiedostosta. Olion tietoja päivitetään ohjelman muista osista.
 

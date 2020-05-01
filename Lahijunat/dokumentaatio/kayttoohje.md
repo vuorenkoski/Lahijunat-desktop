@@ -1,10 +1,10 @@
 # Käyttöohje
-Ohjelmalla käyttäjä voi selailla VR:n pääkaupunkiseudun lähijunien aikatauluja ja todellisia kulkuaikoja. Sovelluksella voi seurata myös junien liikkeitä kartalla.
+Ohjelmalla käyttäjä voi selailla VR:n pääkaupunkiseudun lähijunien aikatauluja sekä ennakoituja ja todellisia kulkuaikoja. Sovelluksella voi seurata myös junien liikkeitä kartalla.
 
 Ohjelma vaatii toimiakseen internetyhteyden.
 
 ## Aloitus
-Lataa tiedosto [lahijunat.jar](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko6)
+Lataa tiedosto [lahijunat.jar](https://github.com/vuorenkoski/ot-harjoitustyo/releases/tag/viikko7)
 
 Ohjelma olettaa, että käyttäjällä on kirjoitusoikeus ohjelman käynnistyshakemistoon. Se luo hakemistoon ensimmäisen käynnistyksen yhteydessä searches.csv tiedoston, johon se tallentaa tehtyjä hakuja.
 
@@ -26,7 +26,7 @@ Kun junan tietoja kaksoisklikkaa, tulostuu kyseiset junan tiedot Juna -välilehd
 ### Juna -välilehti
 Välilehdellä näkyy valitun junan aikataulutiedot. Junan seuraava asema on merkitty X-merkillä.
 
-Mikäli junan ennakoidaan myöhästyvän aikataulun mukaisesta lähtöajasta, näkyy ennakoitu aika toisessa sarakkeessa. Mikäli juna on peruttu, aikataulua ei tulostu, vaan sen sijasta tieto junan peruutuksesta.
+Mikäli junan ennakoidaan myöhästyvän aikataulun mukaisesta lähtöajasta, näkyy ennakoitu aika toisessa sarakkeessa. Mikäli juna on peruttu, aikataulua ei tulostu, vaan sen sijasta näytetään tieto junan peruutuksesta.
 
 Junan sijainti näkyy oikealla olevassa kartassa punaisena pisteenä. Tiedot päivittyvät kahden minuutin välein.
 
@@ -34,4 +34,4 @@ Junan sijainti näkyy oikealla olevassa kartassa punaisena pisteenä. Tiedot pä
 Välilehdellä näkyy 20 viimeisintä hakua. Kun haun tietoja kaksoisklikkaa, tulostuu kyseiset junan tiedot Juna -välilehdelle ja sovelluksen näkymä siirtyy siihen välilehteen.
 
 ### Kartta -välilehti
-Kaikki lähijunat näkyvät kartalla punaisina pisteinä. Tiedot päivittyvät 15 sekunnin välein. Mustat pisteet ovat juna-asemia.
+Kaikki lähijunat näkyvät kartalla punaisina pisteinä. Tiedot päivittyvät 10 sekunnin välein. Mustat pisteet ovat juna-asemia.

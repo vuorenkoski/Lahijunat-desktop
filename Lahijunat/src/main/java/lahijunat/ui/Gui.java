@@ -249,13 +249,13 @@ public class Gui extends Application {
                 "\n" +
                 "Juna -välilehti: Välilehdellä näkyy valitun junan aikataulutiedot. Mikäli juna on myöhässä, näkyy rivilla myös arvioitu lähtöaika. Junan seuraava asema on merkitty X-merkillä. Junan sijainti näkyy kartalla punaisena pisteenä. Tiedot päivittyvät kahden minuutin välein.\n" +
                 "\n" +
-                "Kartta -välilehti: Kaikki lähijunat näkyvät kartalla punaisina pisteinä. Tiedot päivittyvät 15 sekunnin välein.\n" +
+                "Kartta -välilehti: Kaikki lähijunat näkyvät kartalla punaisina pisteinä. Tiedot päivittyvät 10 sekunnin välein.\n" +
                 "\n" +
                 "Haku -välilehti: Kun asema -välilehdellä haetaan junan aikataulutiedot, tallentuu haku automaattisesti hakulistalle. Listalla näkyy 20 viimeistä hakua. Kaksoisklikkaamalla listalla olevaa hakua, tulee junan tiedot juna -välilehdelle.\n" +
                 "\n" +
                 "Virheilmoitukset tulostuvat sovelluksen alareunaan.\n" +
                 "\n" +
-                "Lähijunat -sovellus 1.0\nv. 30.4.2020\nrelease 6.9\n" +
+                "Lähijunat -sovellus 1.0\nv. 1.5.2020\nrelease 7\n" +
                 "\n" +
                 "datalähde: https://www.digitraffic.fi/rautatieliikenne/\n" +
                 "\n" +
