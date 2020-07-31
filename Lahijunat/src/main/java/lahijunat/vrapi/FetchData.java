@@ -3,10 +3,14 @@ package lahijunat.vrapi;
 import lahijunat.domain.Station;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
+import java.util.zip.GZIPInputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -30,13 +34,12 @@ public class FetchData {
         
         // Määritellään urlissa että otetaan junat määritellyltä jotka lähtevät asemalta kahden tunnin sisään.
         // Asematieto lisätään urliin lyhytnimenä, esim Helsinki=HEL
-        URL url = new URL(BASEADDRESS + "/live-trains/station/" +
+        String url = "/live-trains/station/" +
                 URLEncoder.encode(Station.stationShortName(uicCode), "UTF-8") +
                 "?minutes_before_departure=120&minutes_after_departure=0" +
                 "&minutes_before_arrival=120&minutes_after_arrival=0" +
-                "&train_categories=Commuter");
-        Scanner urlReader = new Scanner(url.openStream());
-        JSONArray data = new JSONArray(urlReader.nextLine());
+                "&train_categories=Commuter";
+        JSONArray data = new JSONArray(getData(url));
         return data;
     }
        
@@ -46,9 +49,7 @@ public class FetchData {
      * @return Junan aikataulu -data (JSONObject)
      */
     public static JSONObject trainTimeTable(int trainNumber) throws MalformedURLException, IOException {               
-        URL url = new URL(BASEADDRESS + "/trains/latest/" + trainNumber);
-        Scanner urlReader = new Scanner(url.openStream());
-        JSONArray data = new JSONArray(urlReader.nextLine());
+        JSONArray data = new JSONArray(getData("/trains/latest/" + trainNumber));
         return data.getJSONObject(0);
     }
     
@@ -57,10 +58,7 @@ public class FetchData {
      * @return Junien koordinaatit (JSONArray)
      */
     public static JSONArray allTrainsCoordinates() throws MalformedURLException, IOException {
-        URL url = new URL(BASEADDRESS + "/train-locations/latest?bbox=24,60,25,62");
-        Scanner urlReader = new Scanner(url.openStream());
-        JSONArray data = new JSONArray(urlReader.nextLine());
-        return data;
+        return new JSONArray(getData("/train-locations/latest?bbox=24,60,25,62"));
     }
     
     /**
@@ -69,8 +67,20 @@ public class FetchData {
      * @return Junan koordinaatit (JSONArray)
      */
     public static JSONArray trainCoordinates(int trainNumber) throws MalformedURLException, IOException {
-        URL url = new URL(BASEADDRESS + "/train-locations/latest/" + trainNumber);
-        Scanner urlReader = new Scanner(url.openStream());
-        return new JSONArray(urlReader.nextLine());
+        return new JSONArray(getData("/train-locations/latest/" + trainNumber));
+    }
+    
+    private static String getData(String address) throws MalformedURLException, IOException {
+        URL url = new URL(BASEADDRESS + address);
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestProperty("Accept-Encoding", "gzip");
+        Scanner urlReader = null;
+        if ("gzip".equals(con.getContentEncoding())) {
+            urlReader = new Scanner(new GZIPInputStream(con.getInputStream()));
+        }
+        else {
+            urlReader = new Scanner(con.getInputStream());
+        }
+        return urlReader.nextLine();
     }
 }
